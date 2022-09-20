@@ -23,6 +23,7 @@ node_modules
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+.history
 
 # misc
 /.sass-cache
@@ -37,3 +38,7 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+
+# .env
+nx-cloud.env
