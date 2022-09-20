@@ -1,1 +1,1 @@
-export * from './lib/style-core';
+export * from './lib/convertStyleObject/convertStyleObject';
