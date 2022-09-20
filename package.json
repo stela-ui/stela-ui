@@ -3,6 +3,10 @@
   "version": "0.0.0",
   "license": "MIT",
   "private": true,
+  "engines": {
+    "node": ">=16.x.x",
+    "npm": ">=7.x.x"
+  },
   "scripts": {
     "start": "nx serve",
     "build": "nx build",
