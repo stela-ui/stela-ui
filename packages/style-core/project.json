@@ -2,7 +2,27 @@
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "packages/style-core/src",
   "projectType": "library",
+  "tags": [],
   "targets": {
+    "build": {
+      "executor": "@nrwl/web:rollup",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/style-core",
+        "tsConfig": "packages/style-core/tsconfig.lib.json",
+        "project": "packages/style-core/package.json",
+        "entryFile": "packages/style-core/src/index.ts",
+        "format": ["cjs", "esm"],
+        "rollupConfig": ["rollup.config.js"],
+        "assets": [
+          {
+            "glob": "packages/style-core/README.md",
+            "input": ".",
+            "output": "."
+          }
+        ]
+      }
+    },
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
@@ -17,7 +37,19 @@
         "jestConfig": "packages/style-core/jest.config.ts",
         "passWithNoTests": true
       }
+    },
+    "versionCI": {
+      "executor": "@jscutlery/semver:version",
+      "options": {
+        "preset": "conventional",
+        "postTargets": ["style-core:publish"]
+      }
+    },
+    "publish": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "yarn nx build style-core && npm publish ./dist/packages/style-core --access=public --registry=https://registry.npmjs.org"
+      }
     }
-  },
-  "tags": []
+  }
 }

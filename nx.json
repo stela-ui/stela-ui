@@ -12,5 +12,10 @@
         "cacheableOperations": ["build", "lint", "test"]
       }
     }
+  },
+  "pluginsConfig": {
+    "@nrwl/web": {
+      "analyzeSourceFiles": true
+    }
   }
 }
