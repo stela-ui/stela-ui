@@ -18,10 +18,14 @@ TODO: add docs 1
 
 #### Unit
 
-1.  run `npx nx affected:test`
+1.  run `yarn nx affected:test`
+
+#### Unit watch
+
+1.  run `yarn nx affected:test --watch`
 
 ### Tools
 
 #### Dependency graph
 
-1. to view the dependency graph run `npx nx graph`
+1. to view the dependency graph run `yarn nx graph`

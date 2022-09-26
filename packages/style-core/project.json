@@ -13,6 +13,7 @@
         "project": "packages/style-core/package.json",
         "entryFile": "packages/style-core/src/index.ts",
         "format": ["cjs", "esm"],
+        "externals": [],
         "rollupConfig": ["rollup.config.js"],
         "assets": [
           {
