@@ -2,6 +2,12 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.2.0](https://github.com/stela-ui/stela-ui/compare/style-core-0.1.0...style-core-0.2.0) (2022-09-27)
+
+### Features
+
+- add individual responsive style converter flavor ([#19](https://github.com/stela-ui/stela-ui/issues/19)) ([108ed28](https://github.com/stela-ui/stela-ui/commit/108ed28d8f6fc13ff3d2e0dd0404cfd692895986))
+
 ## 0.1.0 (2022-09-26)
 
 ### Features
