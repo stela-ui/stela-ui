@@ -39,28 +39,23 @@ type MappedStyles<T extends Theme> = Record<
   ResponsiveStyleObject<T>
 >;
 
-// type StyleConverterFn = (style: ResponsiveStyleValue) => string | number;
+type StyleConverterFn = (style: ResponsiveStyleValue) => string | number | null;
 
-// export type ResponsiveStyleObject<T extends Theme = Theme> = Record<
-//   string,
-//   | ResponsiveStyleProp<string | number, T>
-//   | [ResponsiveStyleProp<string | number, T>, StyleConverterFn]
-//   | Record<
-//       string,
-//       | ResponsiveStyleProp<string | number, T>
-//       | [ResponsiveStyleProp<string | number, T>, StyleConverterFn]
-//     >
-// >;
+export type ResponsiveStyleWithConverter<T extends Theme> = [
+  ResponsiveStyleProp<ResponsiveStyleValue, T>,
+  StyleConverterFn
+];
 
-type StyleObject<T extends Theme> = Record<
-  string,
-  ResponsiveStyleProp<ResponsiveStyleValue, T>
->;
+type ResponsiveStyle<T extends Theme> =
+  | ResponsiveStyleProp<ResponsiveStyleValue, T>
+  | ResponsiveStyleWithConverter<T>;
 
 export type ResponsiveStyleObject<T extends Theme> = Record<
   string,
-  ResponsiveStyleProp<ResponsiveStyleValue, T> | StyleObject<T>
+  ResponsiveStyle<T> | StyleObject<T>
 >;
+
+type StyleObject<T extends Theme> = Record<string, ResponsiveStyle<T>>;
 
 type NonResponsiveKey = 'nonResponsive';
 const nonResponsiveKey: NonResponsiveKey = 'nonResponsive';
@@ -71,15 +66,18 @@ const assignConvertedStyles = <T extends Theme>(
   breakpointKey: string,
   styleKey: ObjectKey,
   styleValue: ResponsiveStyleValue,
+  converterFn?: StyleConverterFn,
   parentKey?: ObjectKey
 ) => {
+  const individualConvertedValue = converterFn?.(styleValue) || styleValue;
   const { key: convertedKey, value: convertedValue } =
-    options.keyValueConverter?.(styleKey, styleValue) || {
+    options.keyValueConverter?.(styleKey, individualConvertedValue) || {
       key: styleKey,
-      value: styleValue,
+      value: individualConvertedValue,
     };
 
-  const shouldAddStyles = convertedValue !== null;
+  const shouldAddStyles =
+    individualConvertedValue !== null && convertedValue !== null;
 
   const assignedStyles = shouldAddStyles
     ? { ...styleObject, [breakpointKey]: { ...styleObject[breakpointKey] } }
@@ -97,11 +95,12 @@ const assignConvertedStyles = <T extends Theme>(
 };
 
 const mapResponsiveObjectToBreakpoints = <T extends Theme>(
-  responsiveStyle: UnknownObject,
+  responsiveStyle: ResponsiveStyleObject<T>,
   styleKey: ObjectKey,
   theme: T,
   options: CreateStyleObjectOptions<T>,
   mappedStyles: MappedStyles<T>,
+  converterFn?: StyleConverterFn,
   parentKey?: ObjectKey
 ): MappedStyles<T> =>
   Object.keys(responsiveStyle).reduce<MappedStyles<T>>(
@@ -118,6 +117,7 @@ const mapResponsiveObjectToBreakpoints = <T extends Theme>(
         actualBreakpointKey,
         styleKey,
         styleValue as ResponsiveStyleValue,
+        converterFn,
         parentKey
       );
       return currMappedStyles;
@@ -138,7 +138,10 @@ const mapStylesToBreakpoint = <
   Object.keys(styleObject).reduce<MappedStyles<T>>(
     (prevMappedStyles, styleKey) => {
       let currMappedStyles = { ...prevMappedStyles };
-      const styleValue = styleObject[styleKey];
+      const [styleValue, styleConverter] = Array.isArray(styleObject[styleKey])
+        ? (styleObject[styleKey] as ResponsiveStyleWithConverter<T>)
+        : [styleObject[styleKey]];
+
       const styleValueIsObject = typeof styleValue === 'object';
       const isResponsiveObject =
         styleValueIsObject &&
@@ -166,11 +169,12 @@ const mapStylesToBreakpoint = <
         currMappedStyles = {
           ...currMappedStyles,
           ...mapResponsiveObjectToBreakpoints(
-            styleValue,
+            styleValue as ResponsiveStyleObject<T>,
             styleKey,
             theme,
             options,
             prevMappedStyles,
+            styleConverter,
             parentKey
           ),
         };
@@ -181,6 +185,7 @@ const mapStylesToBreakpoint = <
           nonResponsiveKey,
           styleKey,
           styleValue as ResponsiveStyleValue,
+          styleConverter,
           parentKey
         );
       }
@@ -199,12 +204,13 @@ const mapBreakpointStylesToStyle = <S extends MappedStyles<T>, T extends Theme>(
     Object.keys(mappedStyles) as Array<
       keyof T['breakpoints'] | NonResponsiveKey
     >
-  ).reduce<ConvertedProps<S>>((prev, breakpoint) => {
-    if (breakpoint === nonResponsiveKey) {
-      return { ...prev, ...mappedStyles[breakpoint] };
-    }
-    return { ...prev, [from(breakpoint, theme)]: mappedStyles[breakpoint] };
-  }, {} as ConvertedProps<S>);
+  ).reduce<ConvertedProps<S>>(
+    (prev, breakpoint) =>
+      breakpoint === nonResponsiveKey
+        ? { ...prev, ...mappedStyles[breakpoint] }
+        : { ...prev, [from(breakpoint, theme)]: mappedStyles[breakpoint] },
+    {} as ConvertedProps<S>
+  );
 
 export const createStyleObjectWithOptions = <
   S extends ResponsiveStyleObject<T>,
