@@ -1,6 +1,6 @@
 {
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "packages/style-core/src",
+  "sourceRoot": "packages/css/src",
   "projectType": "library",
   "tags": [],
   "targets": {
@@ -8,16 +8,16 @@
       "executor": "@nrwl/web:rollup",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/packages/style-core",
-        "tsConfig": "packages/style-core/tsconfig.lib.json",
-        "project": "packages/style-core/package.json",
-        "entryFile": "packages/style-core/src/index.ts",
+        "outputPath": "dist/packages/css",
+        "tsConfig": "packages/css/tsconfig.lib.json",
+        "project": "packages/css/package.json",
+        "entryFile": "packages/css/src/index.ts",
         "format": ["cjs", "esm"],
         "externals": [],
         "rollupConfig": ["rollup.config.js"],
         "assets": [
           {
-            "glob": "packages/style-core/README.md",
+            "glob": "packages/css/README.md",
             "input": ".",
             "output": "."
           }
@@ -28,14 +28,14 @@
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["packages/style-core/**/*.ts"]
+        "lintFilePatterns": ["packages/css/**/*.ts"]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/packages/style-core"],
+      "outputs": ["coverage/packages/css"],
       "options": {
-        "jestConfig": "packages/style-core/jest.config.ts",
+        "jestConfig": "packages/css/jest.config.ts",
         "passWithNoTests": true
       }
     },
@@ -43,13 +43,13 @@
       "executor": "@jscutlery/semver:version",
       "options": {
         "preset": "conventional",
-        "postTargets": ["style-core:publish"]
+        "postTargets": ["css:publish"]
       }
     },
     "publish": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "yarn nx build style-core && npm publish ./dist/packages/style-core --access=public --registry=https://registry.npmjs.org"
+        "command": "yarn nx build css && npm publish ./dist/packages/css --access=public --registry=https://registry.npmjs.org"
       }
     }
   }

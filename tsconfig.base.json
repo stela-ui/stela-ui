@@ -15,7 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@stela-ui/style-core": ["packages/style-core/src/index.ts"]
+      "@stela-ui/css": ["packages/css/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
