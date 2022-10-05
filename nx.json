@@ -57,7 +57,7 @@
         "babel": true
       },
       "component": {
-        "style": "styled-components",
+        "style": "none",
         "directory": "components",
         "pascalCaseDirectory": true,
         "pascalCaseFiles": true
@@ -65,7 +65,7 @@
     },
     "@nrwl/next": {
       "application": {
-        "style": "styled-components",
+        "style": "@emotion/styled",
         "linter": "eslint"
       }
     }
