@@ -41,7 +41,7 @@ jobs:
       - run: yarn --frozen-lockfile
 
       - name: Version
-        run: yarn nx affected --base=4bb7fcb5fbe0f203ec273b666c23b7fe87ec30ad --target=versionCI
+        run: yarn nx affected --base=4bb7fcb5fbe0f203ec273b666c23b7fe87ec30ad --target=versionCI --parallel 1 --nx-bail --releaseAs=major
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
       - name: Tag last-release

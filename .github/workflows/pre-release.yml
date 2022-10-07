@@ -54,7 +54,7 @@ jobs:
       - run: yarn --frozen-lockfile
 
       - name: Version
-        run: yarn nx affected --target=versionCI --releaseAs=prerelease --preid=${{ github.event.inputs.preid }}
+        run: yarn nx affected --target=versionCI --releaseAs=prerelease --preid=${{ github.event.inputs.preid }} --parallel 1
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
       - name: Push changes
