@@ -29,3 +29,5 @@ TODO: add docs
 #### Dependency graph
 
 1. to view the dependency graph run `yarn nx graph`
+
+# Looking for collaborators
