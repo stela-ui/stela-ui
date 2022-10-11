@@ -1,6 +1,6 @@
-# Stela UI
+# Stela UI - A framework agnostic component library
 
-TODO: add docs 1
+TODO: add docs
 
 ## Contribution
 
