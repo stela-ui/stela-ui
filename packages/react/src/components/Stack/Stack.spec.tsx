@@ -4,7 +4,7 @@ import { Stack } from './Stack';
 
 describe('Stack', () => {
   it('should render successfully', () => {
-    const { baseElement } = render(<Stack />);
+    const { baseElement } = render(<Stack>child</Stack>);
     expect(baseElement).toBeTruthy();
   });
 });
