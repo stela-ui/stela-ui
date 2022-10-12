@@ -45,17 +45,22 @@ export const ExpansionPanel: FC<ExpansionPanelProps> = ({
           ? (isActive && true) || false
           : undefined
       }
-      onClick={
-        hasStateManagement && contextId
-          ? (e) => {
-              e.preventDefault();
-              expansionPanelContext.setActivePanel(isActive ? null : contextId);
-            }
-          : undefined
-      }
       css={expansionPanelStyles}
     >
-      <summary>{title}</summary>
+      <summary
+        onClick={
+          hasStateManagement && contextId
+            ? (e) => {
+                e.preventDefault();
+                expansionPanelContext.setActivePanel(
+                  isActive ? null : contextId
+                );
+              }
+            : undefined
+        }
+      >
+        {title}
+      </summary>
       {children}
     </details>
   );
