@@ -45,7 +45,7 @@
         "preset": "conventional"
       }
     },
-    "publish": {
+    "publishCI": {
       "executor": "nx:run-commands",
       "options": {
         "command": "yarn nx build css && npm publish ./dist/packages/css --access=public --registry=https://registry.npmjs.org"
