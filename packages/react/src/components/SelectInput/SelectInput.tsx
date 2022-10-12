@@ -9,6 +9,7 @@ export interface SelectInputProps
   extends GenericComponentProps {
   label?: string;
   defaultValue?: string | number;
+  name?: string;
   onChange?: (checked: string | number) => void | unknown;
   options: { value: string | number; text?: string | number }[];
 }
@@ -19,27 +20,33 @@ export const SelectInput: FC<SelectInputProps> = ({
   onChange,
   defaultValue,
   options,
+  name,
+  label,
   ...rest
 }) => {
   return (
-    <select
-      id={id}
-      data-testid={testId}
-      defaultValue={defaultValue}
-      onChange={
-        onChange
-          ? (e) => {
-              onChange(e.currentTarget.value);
-            }
-          : undefined
-      }
-      // css={selectInputStyles(rest)}
-    >
-      {options?.map(({ value, text }) => (
-        <option key={value} value={value}>
-          {text || value}
-        </option>
-      ))}
-    </select>
+    <div>
+      <span>{label}</span>
+      <select
+        id={id}
+        data-testid={testId}
+        name={name}
+        defaultValue={defaultValue}
+        onChange={
+          onChange
+            ? (e) => {
+                onChange(e.currentTarget.value);
+              }
+            : undefined
+        }
+        // css={selectInputStyles(rest)}
+      >
+        {options?.map(({ value, text }) => (
+          <option key={value} value={value}>
+            {text || value}
+          </option>
+        ))}
+      </select>
+    </div>
   );
 };
