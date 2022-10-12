@@ -2,6 +2,7 @@
 import { expansionPanelStyles } from '@stela-ui/css';
 import type { ReactNode, FC } from 'react';
 
+import { Button } from '../Button/Button';
 import type { GenericComponentProps } from '../types';
 import { useExpansionPanelContext } from './ExpansionPanelContext';
 
@@ -45,9 +46,11 @@ export const ExpansionPanel: FC<ExpansionPanelProps> = ({
           ? (isActive && true) || false
           : undefined
       }
-      css={expansionPanelStyles}
+      css={[expansionPanelStyles]}
     >
       <summary
+        // TODO: fix temp styles
+        css={{ display: 'flex', alignItems: 'center', height: '100%' }}
         onClick={
           hasStateManagement && contextId
             ? (e) => {
@@ -59,7 +62,18 @@ export const ExpansionPanel: FC<ExpansionPanelProps> = ({
             : undefined
         }
       >
-        {title}
+        <span
+          // TODO: fix temp styles
+          css={{
+            padding: '5px 10px',
+            background: 'lightgrey',
+            borderRadius: '4px',
+            border: 'solid grey thin',
+            cursor: 'pointer',
+          }}
+        >
+          {title}
+        </span>
       </summary>
       {children}
     </details>
