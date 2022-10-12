@@ -13,4 +13,6 @@ const Template: ComponentStory<typeof SelectInput> = (args) => (
 );
 
 export const Primary = Template.bind({});
-Primary.args = {};
+Primary.args = {
+  options: [{ value: 'test' }, { value: 'test2', text: 'text-value' }],
+};

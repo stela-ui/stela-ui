@@ -34,7 +34,7 @@ export const SelectInput: FC<SelectInputProps> = ({
       }
       // css={selectInputStyles(rest)}
     >
-      {options.map(({ value, text }) => (
+      {options?.map(({ value, text }) => (
         <option key={value} value={value} selected={value === defaultValue}>
           {text || value}
         </option>
