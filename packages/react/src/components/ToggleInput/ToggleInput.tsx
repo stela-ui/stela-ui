@@ -17,22 +17,26 @@ export const ToggleInput: FC<ToggleInputProps> = ({
   'data-testid': testId,
   onChange,
   defaultChecked,
+  label,
   ...rest
 }) => {
   return (
-    <input
-      type="checkbox"
-      id={id}
-      data-testid={testId}
-      defaultChecked={defaultChecked}
-      onChange={
-        onChange
-          ? (e) => {
-              onChange(e.currentTarget.checked);
-            }
-          : undefined
-      }
-      // css={toggleInputStyles(rest)}
-    />
+    <div>
+      <span>{label}</span>
+      <input
+        type="checkbox"
+        id={id}
+        data-testid={testId}
+        defaultChecked={defaultChecked}
+        onChange={
+          onChange
+            ? (e) => {
+                onChange(e.currentTarget.checked);
+              }
+            : undefined
+        }
+        // css={toggleInputStyles(rest)}
+      />
+    </div>
   );
 };

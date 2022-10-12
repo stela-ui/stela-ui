@@ -9,6 +9,7 @@ export interface TextInputProps
   extends GenericComponentProps {
   type?: 'text' | 'number';
   name?: string;
+  label?: string;
   defaultValue?: string | number;
   onChange?: (value: string | number) => void | unknown;
 }
@@ -20,23 +21,27 @@ export const TextInput: FC<TextInputProps> = ({
   onChange,
   defaultValue,
   name,
+  label,
   ...rest
 }) => {
   return (
-    <input
-      // css={textInputStyles(rest)}
-      id={id}
-      data-testid={testId}
-      type={type}
-      name={name}
-      defaultValue={defaultValue}
-      onChange={
-        onChange
-          ? (e) => {
-              onChange(e.currentTarget.value);
-            }
-          : undefined
-      }
-    />
+    <div>
+      <span>{label}</span>
+      <input
+        // css={textInputStyles(rest)}
+        id={id}
+        data-testid={testId}
+        type={type}
+        name={name}
+        defaultValue={defaultValue}
+        onChange={
+          onChange
+            ? (e) => {
+                onChange(e.currentTarget.value);
+              }
+            : undefined
+        }
+      />
+    </div>
   );
 };
