@@ -25,6 +25,7 @@ export const ExpansionPanel: FC<ExpansionPanelProps> = ({
 }) => {
   const expansionPanelContext = useExpansionPanelContext();
   const hasStateManagement = unmanaged !== true && expansionPanelContext;
+
   if (expansionPanelContext && !contextId && typeof unmanaged === 'undefined') {
     console.warn(
       'Please pass a contextId or set the the pass set the `unmanaged` prop to the ExpansionPanel component.'

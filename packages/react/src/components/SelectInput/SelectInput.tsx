@@ -25,6 +25,7 @@ export const SelectInput: FC<SelectInputProps> = ({
     <select
       id={id}
       data-testid={testId}
+      defaultValue={defaultValue}
       onChange={
         onChange
           ? (e) => {
@@ -35,7 +36,7 @@ export const SelectInput: FC<SelectInputProps> = ({
       // css={selectInputStyles(rest)}
     >
       {options?.map(({ value, text }) => (
-        <option key={value} value={value} selected={value === defaultValue}>
+        <option key={value} value={value}>
           {text || value}
         </option>
       ))}
