@@ -3,6 +3,6 @@
   "version": 2,
   "projects": {
     "css": "packages/css",
-    "ui": "packages/ui"
+    "react": "packages/react"
   }
 }

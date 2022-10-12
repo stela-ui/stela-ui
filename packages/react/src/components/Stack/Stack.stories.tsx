@@ -8,7 +8,7 @@ const spaces = theme.space.map((_, i) => i);
 
 const StackConfig: ComponentMeta<typeof Stack> = {
   component: Stack,
-  title: 'UI/Stack',
+  title: 'React/Stack',
   argTypes: {
     gap: { options: spaces, control: 'select' },
     flow: {

@@ -16,7 +16,7 @@
     "baseUrl": ".",
     "paths": {
       "@stela-ui/css": ["packages/css/src/index.ts"],
-      "@stela-ui/ui": ["packages/ui/src/index.ts"]
+      "@stela-ui/react": ["packages/react/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
