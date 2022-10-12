@@ -1,6 +1,12 @@
+// import type { TextInputStylesProps } from '@stela-ui/css';
+// import { textInputStyles } from '@stela-ui/css';
 import type { FC } from 'react';
 
-export interface TextInputProps {
+import type { GenericComponentProps } from '../types';
+
+export interface TextInputProps
+  // TextInputStylesProps,
+  extends GenericComponentProps {
   type: 'text' | 'number';
   name?: string;
   defaultValue?: string | number;
@@ -15,6 +21,7 @@ export const TextInput: FC<TextInputProps> = ({
   return (
     <input
       {...rest}
+      // css={textInputStyles(rest)}
       type={type}
       onChange={
         onChange
