@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 
-import ToggleInput from './ToggleInput';
+import { ToggleInput } from './ToggleInput';
 
 describe('ToggleInput', () => {
   it('should render successfully', () => {

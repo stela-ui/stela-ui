@@ -8,21 +8,28 @@ export interface ButtonProps
   // ButtonStylesProps,
   extends GenericComponentProps {
   children: ReactNode | ReactNode[];
+  type?: 'submit' | 'button' | 'reset';
+  disabled?: boolean;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
 export const Button: FC<ButtonProps> = ({
+  type = 'button',
   children,
   id,
   'data-testid': testId,
+  onClick,
   ...rest
 }) => {
   return (
-    <div
+    <button
       id={id}
       data-testid={testId}
+      type={type}
+      onClick={onClick}
       // css={buttonStyles(rest)}
     >
       {children}
-    </div>
+    </button>
   );
 };
