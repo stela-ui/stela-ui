@@ -7,7 +7,7 @@ import type { GenericComponentProps } from '../types';
 export interface SpacingProps
   extends SpacingStylesProps,
     GenericComponentProps {
-  children: ReactNode | ReactNode[];
+  children?: ReactNode | ReactNode[];
 }
 
 export const Spacing: FC<SpacingProps> = ({
