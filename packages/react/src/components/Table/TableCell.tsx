@@ -13,11 +13,17 @@ export interface TableCellProps
 export const TableCell: FC<TableCellProps> = ({
   children,
   id,
+  className,
   'data-testid': testId,
   ...rest
 }) => {
   return (
-    <div id={id} data-testid={testId} css={tableCellStyles(rest)}>
+    <div
+      id={id}
+      className={className}
+      data-testid={testId}
+      css={tableCellStyles(rest)}
+    >
       {children}
     </div>
   );

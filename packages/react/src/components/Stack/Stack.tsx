@@ -11,11 +11,17 @@ export interface StackProps extends StackStylesProps, GenericComponentProps {
 export const Stack: FC<StackProps> = ({
   children,
   id,
+  className,
   'data-testid': testId,
   ...rest
 }) => {
   return (
-    <div css={stackStyles(rest)} id={id} data-testid={testId}>
+    <div
+      css={stackStyles(rest)}
+      id={id}
+      className={className}
+      data-testid={testId}
+    >
       {children}
     </div>
   );

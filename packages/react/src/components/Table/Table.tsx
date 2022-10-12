@@ -15,10 +15,16 @@ export const Table: FC<TableProps> = ({
   id,
   'data-testid': testId,
   columns,
+  className,
   ...rest
 }) => {
   return (
-    <div id={id} data-testid={testId} css={tableStyles({ columns })}>
+    <div
+      id={id}
+      className={className}
+      data-testid={testId}
+      css={tableStyles({ columns })}
+    >
       {children}
     </div>
   );
