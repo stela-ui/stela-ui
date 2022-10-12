@@ -1,5 +1,6 @@
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
 
+import { Stack } from '../Stack/Stack';
 import { ExpansionPanel } from './ExpansionPanel';
 import { ExpansionPanelContextProvider } from './ExpansionPanelContext';
 
@@ -10,7 +11,7 @@ const Story: ComponentMeta<typeof ExpansionPanel> = {
 export default Story;
 
 const Template: ComponentStory<typeof ExpansionPanel> = (args) => (
-  <>
+  <Stack gap={4}>
     <ExpansionPanel {...args} title={`Unmanaged: ${args.title}`}>
       Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellendus
       provident dolores in eligendi rerum, deserunt explicabo quidem! Nostrum
@@ -31,7 +32,7 @@ const Template: ComponentStory<typeof ExpansionPanel> = (args) => (
         Quasi quos laboriosam aliquam!
       </ExpansionPanel>
     </ExpansionPanelContextProvider>
-  </>
+  </Stack>
 );
 
 export const Primary = Template.bind({});
