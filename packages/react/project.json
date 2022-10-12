@@ -1,6 +1,6 @@
 {
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "packages/ui/src",
+  "sourceRoot": "packages/react/src",
   "projectType": "library",
   "tags": [],
   "targets": {
@@ -8,16 +8,16 @@
       "executor": "@nrwl/web:rollup",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/packages/ui",
-        "tsConfig": "packages/ui/tsconfig.lib.json",
-        "project": "packages/ui/package.json",
-        "entryFile": "packages/ui/src/index.ts",
+        "outputPath": "dist/packages/react",
+        "tsConfig": "packages/react/tsconfig.lib.json",
+        "project": "packages/react/package.json",
+        "entryFile": "packages/react/src/index.ts",
         "format": ["cjs", "esm"],
         "externals": [],
         "rollupConfig": ["rollup.config.js"],
         "assets": [
           {
-            "glob": "packages/ui/README.md",
+            "glob": "packages/react/README.md",
             "input": ".",
             "output": "."
           }
@@ -28,14 +28,14 @@
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["packages/ui/**/*.{ts,tsx,js,jsx}"]
+        "lintFilePatterns": ["packages/react/**/*.{ts,tsx,js,jsx}"]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/packages/ui"],
+      "outputs": ["coverage/packages/react"],
       "options": {
-        "jestConfig": "packages/ui/jest.config.ts",
+        "jestConfig": "packages/react/jest.config.ts",
         "passWithNoTests": true
       }
     },
@@ -45,7 +45,7 @@
         "uiFramework": "@storybook/react",
         "port": 4400,
         "config": {
-          "configFolder": "packages/ui/.storybook"
+          "configFolder": "packages/react/.storybook"
         }
       },
       "configurations": {
@@ -59,9 +59,9 @@
       "outputs": ["{options.outputPath}"],
       "options": {
         "uiFramework": "@storybook/react",
-        "outputPath": "dist/storybook/ui",
+        "outputPath": "dist/storybook/react",
         "config": {
-          "configFolder": "packages/ui/.storybook"
+          "configFolder": "packages/react/.storybook"
         }
       },
       "configurations": {
@@ -73,14 +73,13 @@
     "versionCI": {
       "executor": "@jscutlery/semver:version",
       "options": {
-        "preset": "conventional",
-        "postTargets": ["ui:publish"]
+        "preset": "conventional"
       }
     },
-    "publish": {
+    "publishCI": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "yarn nx build ui && npm publish ./dist/packages/ui --access=public --registry=https://registry.npmjs.org"
+        "command": "yarn nx build react && npm publish ./dist/packages/react --access=public --registry=https://registry.npmjs.org"
       }
     }
   }
