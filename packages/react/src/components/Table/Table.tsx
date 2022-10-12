@@ -1,12 +1,28 @@
-/* eslint-disable-next-line */
-export interface TableProps {}
+// import type { TableStylesProps } from '@stela-ui/css';
+// import { tableStyles } from '@stela-ui/css';
+import type { ReactNode, FC } from 'react';
 
-export function Table(props: TableProps) {
-  return (
-    <div>
-      <h1>Welcome to Table!</h1>
-    </div>
-  );
+import type { GenericComponentProps } from '../types';
+
+export interface TableProps
+  // TableStylesProps,
+  extends GenericComponentProps {
+  children: ReactNode | ReactNode[];
 }
 
-export default Table;
+export const Table: FC<TableProps> = ({
+  children,
+  id,
+  'data-testid': testId,
+  ...rest
+}) => {
+  return (
+    <div
+      id={id}
+      data-testid={testId}
+      // css={tableStyles(rest)}
+    >
+      {children}
+    </div>
+  );
+};

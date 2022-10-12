@@ -1,12 +1,28 @@
-/* eslint-disable-next-line */
-export interface ButtonProps {}
+// import type { ButtonStylesProps } from '@stela-ui/css';
+// import { buttonStyles } from '@stela-ui/css';
+import type { ReactNode, FC } from 'react';
 
-export function Button(props: ButtonProps) {
-  return (
-    <div>
-      <h1>Welcome to Button!</h1>
-    </div>
-  );
+import type { GenericComponentProps } from '../types';
+
+export interface ButtonProps
+  // ButtonStylesProps,
+  extends GenericComponentProps {
+  children: ReactNode | ReactNode[];
 }
 
-export default Button;
+export const Button: FC<ButtonProps> = ({
+  children,
+  id,
+  'data-testid': testId,
+  ...rest
+}) => {
+  return (
+    <div
+      id={id}
+      data-testid={testId}
+      // css={buttonStyles(rest)}
+    >
+      {children}
+    </div>
+  );
+};
