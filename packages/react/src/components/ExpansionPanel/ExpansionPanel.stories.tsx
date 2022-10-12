@@ -4,7 +4,7 @@ import { ExpansionPanel } from './ExpansionPanel';
 
 const Story: ComponentMeta<typeof ExpansionPanel> = {
   component: ExpansionPanel,
-  title: 'ExpansionPanel',
+  title: 'General/ExpansionPanel',
 };
 export default Story;
 

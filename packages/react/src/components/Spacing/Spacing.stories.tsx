@@ -7,7 +7,7 @@ import { Spacing } from './Spacing';
 const spaces = theme.space.map((_, i) => i);
 
 const SpacingConfig: ComponentMeta<typeof Spacing> = {
-  title: 'React/Spacing',
+  title: 'Layout/Spacing',
   component: Spacing,
   argTypes: {
     m: { options: spaces, control: 'select' },

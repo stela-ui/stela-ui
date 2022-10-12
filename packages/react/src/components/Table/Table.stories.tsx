@@ -4,7 +4,7 @@ import { Table } from './Table';
 
 const Story: ComponentMeta<typeof Table> = {
   component: Table,
-  title: 'Table',
+  title: 'General/Table',
 };
 export default Story;
 

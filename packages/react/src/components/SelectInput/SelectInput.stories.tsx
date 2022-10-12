@@ -4,7 +4,7 @@ import { SelectInput } from './SelectInput';
 
 const Story: ComponentMeta<typeof SelectInput> = {
   component: SelectInput,
-  title: 'SelectInput',
+  title: 'Input/SelectInput',
 };
 export default Story;
 
