@@ -4,7 +4,7 @@ import { ToggleInput } from './ToggleInput';
 
 const Story: ComponentMeta<typeof ToggleInput> = {
   component: ToggleInput,
-  title: 'ToggleInput',
+  title: 'Input/ToggleInput',
 };
 export default Story;
 

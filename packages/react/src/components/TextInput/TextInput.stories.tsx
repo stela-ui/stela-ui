@@ -4,7 +4,7 @@ import { TextInput } from './TextInput';
 
 const Story: ComponentMeta<typeof TextInput> = {
   component: TextInput,
-  title: 'TextInput',
+  title: 'Input/TextInput',
 };
 export default Story;
 
