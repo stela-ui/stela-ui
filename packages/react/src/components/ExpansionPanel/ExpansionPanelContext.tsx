@@ -8,15 +8,8 @@ interface ExpansionPanelContextType {
   setActivePanel(panelId: string | number | null): void;
 }
 
-export const defaultContext: ExpansionPanelContextType = {
-  activePanel: null,
-  setActivePanel: () => {
-    //
-  },
-};
-
 export const ExpansionPanelContext =
-  createContext<ExpansionPanelContextType>(defaultContext);
+  createContext<ExpansionPanelContextType | null>(null);
 
 export const useExpansionPanelContext = () => useContext(ExpansionPanelContext);
 
