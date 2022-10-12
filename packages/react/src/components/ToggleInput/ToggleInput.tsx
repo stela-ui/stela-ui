@@ -14,6 +14,7 @@ export interface ToggleInputProps
 
 export const ToggleInput: FC<ToggleInputProps> = ({
   id,
+  className,
   'data-testid': testId,
   onChange,
   defaultChecked,
@@ -21,7 +22,7 @@ export const ToggleInput: FC<ToggleInputProps> = ({
   ...rest
 }) => {
   return (
-    <div>
+    <div className={className}>
       <span>{label}</span>
       <input
         type="checkbox"

@@ -17,6 +17,7 @@ export interface ExpansionPanelProps
 export const ExpansionPanel: FC<ExpansionPanelProps> = ({
   children,
   id,
+  className,
   'data-testid': testId,
   title,
   contextId,
@@ -37,6 +38,7 @@ export const ExpansionPanel: FC<ExpansionPanelProps> = ({
   return (
     <details
       id={id}
+      className={className}
       data-testid={testId}
       open={
         hasStateManagement && contextId

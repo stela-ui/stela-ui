@@ -16,6 +16,7 @@ export interface TextInputProps
 
 export const TextInput: FC<TextInputProps> = ({
   id,
+  className,
   'data-testid': testId,
   type = 'text',
   onChange,
@@ -25,7 +26,7 @@ export const TextInput: FC<TextInputProps> = ({
   ...rest
 }) => {
   return (
-    <div>
+    <div className={className}>
       <span>{label}</span>
       <input
         // css={textInputStyles(rest)}

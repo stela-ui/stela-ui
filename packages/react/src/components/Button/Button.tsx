@@ -17,6 +17,7 @@ export const Button: FC<ButtonProps> = ({
   type = 'button',
   children,
   id,
+  className,
   'data-testid': testId,
   onClick,
   ...rest
@@ -24,6 +25,7 @@ export const Button: FC<ButtonProps> = ({
   return (
     <button
       id={id}
+      className={className}
       data-testid={testId}
       type={type}
       onClick={onClick}

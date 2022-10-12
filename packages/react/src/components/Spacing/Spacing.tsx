@@ -13,11 +13,17 @@ export interface SpacingProps
 export const Spacing: FC<SpacingProps> = ({
   children,
   id,
+  className,
   'data-testid': testId,
   ...rest
 }) => {
   return (
-    <div id={id} data-testid={testId} css={spacingStyles(rest)}>
+    <div
+      id={id}
+      className={className}
+      data-testid={testId}
+      css={spacingStyles(rest)}
+    >
       {children}
     </div>
   );

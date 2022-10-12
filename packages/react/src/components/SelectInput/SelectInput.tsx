@@ -16,6 +16,7 @@ export interface SelectInputProps
 
 export const SelectInput: FC<SelectInputProps> = ({
   id,
+  className,
   'data-testid': testId,
   onChange,
   defaultValue,
@@ -25,7 +26,7 @@ export const SelectInput: FC<SelectInputProps> = ({
   ...rest
 }) => {
   return (
-    <div>
+    <div className={className}>
       <span>{label}</span>
       <select
         id={id}

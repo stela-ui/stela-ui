@@ -10,10 +10,16 @@ export interface TableRowProps extends GenericComponentProps {
 export const TableRow: FC<TableRowProps> = ({
   children,
   id,
+  className,
   'data-testid': testId,
 }) => {
   return (
-    <div id={id} data-testid={testId} css={tableRowStyles}>
+    <div
+      id={id}
+      className={className}
+      data-testid={testId}
+      css={tableRowStyles}
+    >
       {children}
     </div>
   );
