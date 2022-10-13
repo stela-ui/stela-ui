@@ -57,6 +57,8 @@ jobs:
 
       - name: Version
         run: yarn nx affected --target=versionCI --releaseAs=prerelease --preid=${{ github.event.inputs.preid }} --parallel 1 --nx-bail
+      - name: Check for created tags to see if a new version has been made
+        run: git tag -l --contains $(git rev-parse HEAD) | cat | grep . && echo "Found newly created tag" || { echo "No changes found"; exit 1; };
       - name: Publish changes
         run: yarn nx affected --target=publishCI --parallel 1 --nx-bail
         env:
