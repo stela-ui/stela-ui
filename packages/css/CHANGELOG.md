@@ -2,6 +2,18 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+### [0.0.1-alpha.3](https://github.com/stela-ui/stela-ui/compare/css-0.0.1-alpha.2...css-0.0.1-alpha.3) (2022-10-12)
+
+### [0.0.1-alpha.2](https://github.com/stela-ui/stela-ui/compare/css-0.0.1-alpha.1...css-0.0.1-alpha.2) (2022-10-12)
+
+### [0.0.1-alpha.1](https://github.com/stela-ui/stela-ui/compare/css-0.0.1-alpha.0...css-0.0.1-alpha.1) (2022-10-12)
+
+### [0.0.1-alpha.0](https://github.com/stela-ui/stela-ui/compare/css-1.0.0...css-0.0.1-alpha.0) (2022-10-12)
+
+### Features
+
+- style table and expansion panel components ([a3442a3](https://github.com/stela-ui/stela-ui/commit/a3442a3464f37a285b9760ed98e294ab56c70c8f))
+
 ## 1.0.0 (2022-10-07)
 
 ### Features

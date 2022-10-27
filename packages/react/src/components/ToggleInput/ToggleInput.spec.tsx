@@ -1,10 +1,10 @@
 import { render } from '@testing-library/react';
 
-import { Stack } from './Stack';
+import { ToggleInput } from './ToggleInput';
 
-describe('Stack', () => {
+describe('ToggleInput', () => {
   it('should render successfully', () => {
-    const { baseElement } = render(<Stack>child</Stack>);
+    const { baseElement } = render(<ToggleInput />);
     expect(baseElement).toBeTruthy();
   });
 });

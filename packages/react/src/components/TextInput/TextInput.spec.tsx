@@ -1,10 +1,10 @@
 import { render } from '@testing-library/react';
 
-import { Stack } from './Stack';
+import { TextInput } from './TextInput';
 
-describe('Stack', () => {
+describe('TextInput', () => {
   it('should render successfully', () => {
-    const { baseElement } = render(<Stack>child</Stack>);
+    const { baseElement } = render(<TextInput />);
     expect(baseElement).toBeTruthy();
   });
 });

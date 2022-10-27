@@ -1,3 +1,6 @@
+export type ArrayElementType<T extends ReadonlyArray<unknown>> =
+  T extends ReadonlyArray<infer ArrayElementType> ? ArrayElementType : never;
+
 type ResponsiveArrayStyleValue = string | number | boolean | undefined | null;
 
 type ReturnValue = string | number | false | undefined | null;
@@ -8,7 +11,9 @@ export type ConverterFn<
     ? ReturnValue
     : ReturnValue[]
 > = (
-  value: T[] | T | null | undefined | false,
+  value: T extends Array<unknown>
+    ? ArrayElementType<T>
+    : T | null | undefined | false,
   index: number
 ) => R | null | undefined | false;
 

@@ -1,16 +1,16 @@
-import type { SpacingStylesProps } from '@stela-ui/css';
-import { spacingStyles } from '@stela-ui/css';
+import type { TableCellStylesProps } from '@stela-ui/css';
+import { tableCellStyles } from '@stela-ui/css';
 import type { ReactNode, FC } from 'react';
 
 import type { GenericComponentProps } from '../types';
 
-export interface SpacingProps
-  extends SpacingStylesProps,
+export interface TableCellProps
+  extends TableCellStylesProps,
     GenericComponentProps {
-  children?: ReactNode | ReactNode[];
+  children: ReactNode | ReactNode[];
 }
 
-export const Spacing: FC<SpacingProps> = ({
+export const TableCell: FC<TableCellProps> = ({
   children,
   id,
   className,
@@ -22,7 +22,7 @@ export const Spacing: FC<SpacingProps> = ({
       id={id}
       className={className}
       data-testid={testId}
-      css={spacingStyles(rest)}
+      css={tableCellStyles(rest)}
     >
       {children}
     </div>
