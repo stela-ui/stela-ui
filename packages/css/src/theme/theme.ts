@@ -8,29 +8,38 @@ export const colors = {
   mulledWine: '#563d67',
   mountbattenPink: '#99728d',
   sapphire: '#2f2fa1',
+  romance: '#6faa32',
 };
 
-const space = new Array(10).fill(null).map((_, index) => index * 8);
+// TODO: try get scales/sizes to work
 
 export const theme = {
   ...baseTheme,
   colors,
   styles: {
     ...baseTheme.styles,
-    space: space,
   },
-  space: space,
   button: {
     borderRadius: '5px',
-    px: 10,
+    px: `1.1em`,
+    py: `.5em`,
+    fontWeight: 'bold',
     sizes: {
-      s: '20px',
-      m: '40px',
-      l: '60px',
+      s: '14px',
+      m: '18px',
+      l: '24px',
     },
     variants: {
       primary: {
         background: colors.warmPink,
+        color: colors.white,
+      },
+      secondary: {
+        background: colors.sapphire,
+        color: colors.white,
+      },
+      active: {
+        background: colors.romance,
         color: colors.white,
       },
     },

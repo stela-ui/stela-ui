@@ -1,5 +1,3 @@
-import type { Theme as X } from '@theme-ui/css';
-
 import type { Theme as StelaTheme } from './src';
 
 import '@emotion/react';

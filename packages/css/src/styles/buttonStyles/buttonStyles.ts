@@ -17,21 +17,21 @@ const stretchConverter: ConverterFn<ButtonStylesProps['stretch'], '100%'> = (
 ) => (value === true && '100%') || null;
 
 const sizeConverter = (theme: Theme) => {
-  const sizeConverter: ConverterFn<ButtonStylesProps['size'], string> = (
-    size
-  ) => (size ? theme.button.sizes[size] : null);
-  return sizeConverter;
+  const converter: ConverterFn<ButtonStylesProps['size'], string> = (size) =>
+    size ? theme.button?.sizes[size] : null;
+  return converter;
 };
 
 export const buttonStyles: ComponentStyles<ButtonStylesProps> =
   ({ stretch, variant = 'primary', size = 'm' }) =>
   (theme) => {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const { variants, sizes, ...buttonStyles } = theme.button;
+    const { variants, sizes, ...buttonStyles } = theme.button || {};
     return [
       {
         outline: 'none',
         border: 'none',
+        cursor: 'pointer',
       },
       getObjectWithVariants(
         {
@@ -42,8 +42,8 @@ export const buttonStyles: ComponentStyles<ButtonStylesProps> =
       ),
       createStyleObject({
         width: convertResponsiveValue(stretch, stretchConverter),
-        minHeight: convertResponsiveValue(size, sizeConverter(theme)),
-        padding: 10,
+        fontSize: convertResponsiveValue(size, sizeConverter(theme)),
+        ...buttonStyles,
         // TODO: fix Theme type overwrite
       })(theme as any),
     ];

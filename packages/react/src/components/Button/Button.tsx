@@ -4,32 +4,42 @@ import type { ReactNode, FC } from 'react';
 
 import type { GenericComponentProps } from '../types';
 
-export interface ButtonProps extends ButtonStylesProps, GenericComponentProps {
+export interface ButtonProps<As extends 'button' | 'span' = 'button' | 'span'>
+  extends ButtonStylesProps,
+    GenericComponentProps {
   children: ReactNode | ReactNode[];
   type?: 'submit' | 'button' | 'reset';
   disabled?: boolean;
-  onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  onClick?: React.MouseEventHandler<
+    As extends 'button' ? HTMLButtonElement : HTMLSpanElement
+  >;
+  as?: As;
 }
 
 export const Button: FC<ButtonProps> = ({
-  type = 'button',
   children,
   id,
   className,
-  'data-testid': testId,
   onClick,
+  'data-testid': testId,
+  type = 'button',
+  as = 'button',
   ...rest
 }) => {
+  const Element = as;
+  const buttonProps = {
+    type,
+  };
   return (
-    <button
+    <Element
       id={id}
       className={className}
       data-testid={testId}
-      type={type}
       onClick={onClick}
       css={buttonStyles(rest)}
+      {...(as === 'button' ? buttonProps : {})}
     >
       {children}
-    </button>
+    </Element>
   );
 };
