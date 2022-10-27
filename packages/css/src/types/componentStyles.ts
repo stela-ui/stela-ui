@@ -1,4 +1,6 @@
-import type { CSSObject, Theme } from '@theme-ui/css';
+import type { CSSObject } from '@theme-ui/css';
+
+import type { Theme } from '../theme';
 
 export type StyleThemeFunction<T extends Theme = Theme> = (
   theme: T
