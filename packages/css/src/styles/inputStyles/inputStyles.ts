@@ -53,7 +53,7 @@ export const inputLabelStyles: ComponentStyles<InputLabelStylesProps> =
       },
       createStyleObject({
         fontSize: 1,
-        mb: 1,
+        mb: labelPosition === 'top' ? 1 : 0,
         mr: labelPosition === 'top' ? 0 : 3,
       })(theme),
     ];

@@ -13,4 +13,4 @@ const Template: ComponentStory<typeof ToggleInput> = (args) => (
 );
 
 export const Primary = Template.bind({});
-Primary.args = {};
+Primary.args = { label: 'Example toggle input' };
