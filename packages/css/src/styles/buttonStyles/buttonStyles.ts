@@ -37,14 +37,12 @@ export const buttonStyles: ComponentStyles<ButtonStylesProps> =
         {
           variant: `button.variants.${variant}`,
         },
-        // TODO: fix Theme type overwrite
-        theme as any
+        theme
       ),
       createStyleObject({
         width: convertResponsiveValue(stretch, stretchConverter),
         fontSize: convertResponsiveValue(size, sizeConverter(theme)),
         ...buttonStyles,
-        // TODO: fix Theme type overwrite
-      })(theme as any),
+      })(theme),
     ];
   };
