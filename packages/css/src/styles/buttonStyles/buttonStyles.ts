@@ -32,6 +32,12 @@ export const buttonStyles: ComponentStyles<ButtonStylesProps> =
         outline: 'none',
         border: 'none',
         cursor: 'pointer',
+        '&:focus': {
+          // TODO: make themeable
+          boxShadow: `0px 0px 2px ${theme.colors?.lapisBlue}`,
+          outline: 'solid 2px #b00849',
+          outlineOffset: '-2px',
+        },
       },
       getObjectWithVariants(
         {

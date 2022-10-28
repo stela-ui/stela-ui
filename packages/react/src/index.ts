@@ -9,3 +9,4 @@ export * from './components/ExpansionPanel/ExpansionPanelContext';
 export * from './components/SelectInput/SelectInput';
 export * from './components/TextInput/TextInput';
 export * from './components/ToggleInput/ToggleInput';
+export * from './components/GlobalStyles/GlobalStyles';

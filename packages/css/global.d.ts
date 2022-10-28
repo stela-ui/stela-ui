@@ -1,4 +1,4 @@
-import type { Theme as StelaTheme } from '@stela-ui/css';
+import type { Theme as StelaTheme } from './src';
 
 import '@emotion/react';
 import '@theme-ui/css';

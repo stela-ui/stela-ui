@@ -5,6 +5,7 @@ import { ThemeProvider } from 'theme-ui';
 
 // eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
 import { theme } from '../../css/src';
+import { GlobalStyles } from '../src';
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
@@ -25,6 +26,7 @@ export const decorators = [
   (Story) => (
     <CacheProvider value={emotionCache}>
       <ThemeProvider theme={theme}>
+        <GlobalStyles />
         <Story />
       </ThemeProvider>
     </CacheProvider>

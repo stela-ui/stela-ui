@@ -1,12 +1,16 @@
-// import type { SelectInputStylesProps } from '@stela-ui/css';
-// import { selectInputStyles } from '@stela-ui/css';
+import type {
+  BasicInputStylesProps,
+  InputLabelStylesProps,
+} from '@stela-ui/css';
+import { basicInputStyles, inputLabelStyles } from '@stela-ui/css';
 import type { FC } from 'react';
 
 import type { GenericComponentProps } from '../types';
 
 export interface SelectInputProps
-  // SelectInputStylesProps,
-  extends GenericComponentProps {
+  extends BasicInputStylesProps,
+    InputLabelStylesProps,
+    GenericComponentProps {
   label?: string;
   defaultValue?: string | number;
   name?: string;
@@ -23,11 +27,12 @@ export const SelectInput: FC<SelectInputProps> = ({
   options,
   name,
   label,
-  ...rest
+  labelPosition,
+  hasError,
 }) => {
   return (
     <div className={className}>
-      <span>{label}</span>
+      <span css={inputLabelStyles({ labelPosition })}>{label}</span>
       <select
         id={id}
         data-testid={testId}
@@ -40,7 +45,7 @@ export const SelectInput: FC<SelectInputProps> = ({
               }
             : undefined
         }
-        // css={selectInputStyles(rest)}
+        css={basicInputStyles({ hasError })}
       >
         {options?.map(({ value, text }) => (
           <option key={value} value={value}>
