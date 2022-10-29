@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+### [0.0.1-beta.1](https://github.com/stela-ui/stela-ui/compare/css-0.0.1-beta.0...css-0.0.1-beta.1) (2022-10-29)
+
+### Bug Fixes
+
+- set line-height to button for inconsistency with button and span ([b5e00b3](https://github.com/stela-ui/stela-ui/commit/b5e00b34845107bc2e6dc31b3427adcdae2fee46))
+- table background and expansion panel summary center ([f67fa3f](https://github.com/stela-ui/stela-ui/commit/f67fa3f626e7019b457d5115cc9647214d42f7a9))
+
 ### [0.0.1-beta.0](https://github.com/stela-ui/stela-ui/compare/css-1.0.0...css-0.0.1-beta.0) (2022-10-29)
 
 ### Features
