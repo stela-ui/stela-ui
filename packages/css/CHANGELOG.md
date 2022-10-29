@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+### [0.0.1-beta.0](https://github.com/stela-ui/stela-ui/compare/css-1.0.0...css-0.0.1-beta.0) (2022-10-29)
+
+### Features
+
+- add components that will be used in dynamic msw ([#6](https://github.com/stela-ui/stela-ui/issues/6)) ([3e7b097](https://github.com/stela-ui/stela-ui/commit/3e7b09769b3c5818e8c044ee999633ae676f347f))
+- style components properly ([#8](https://github.com/stela-ui/stela-ui/issues/8)) ([19fd30c](https://github.com/stela-ui/stela-ui/commit/19fd30c0d2eb54e262cb7b17ab77ea68af1bdd86))
+
 ### [0.0.1-alpha.3](https://github.com/stela-ui/stela-ui/compare/css-0.0.1-alpha.2...css-0.0.1-alpha.3) (2022-10-12)
 
 ### [0.0.1-alpha.2](https://github.com/stela-ui/stela-ui/compare/css-0.0.1-alpha.1...css-0.0.1-alpha.2) (2022-10-12)
