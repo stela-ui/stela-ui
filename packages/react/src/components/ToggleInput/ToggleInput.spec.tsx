@@ -1,5 +1,4 @@
-import { render } from '@testing-library/react';
-
+import { render } from '../../utils/test';
 import { ToggleInput } from './ToggleInput';
 
 describe('ToggleInput', () => {

@@ -1,4 +1,7 @@
-// import type { ExpansionPanelStylesProps } from '@stela-ui/css';
+import type {
+  // ExpansionPanelStylesProps,
+  ButtonStylesProps,
+} from '@stela-ui/css';
 import { expansionPanelStyles } from '@stela-ui/css';
 import type { ReactNode, FC } from 'react';
 
@@ -13,6 +16,7 @@ export interface ExpansionPanelProps
   title: ReactNode | ReactNode[];
   contextId?: string | number;
   unmanaged?: boolean;
+  buttonProps?: ButtonStylesProps;
 }
 
 export const ExpansionPanel: FC<ExpansionPanelProps> = ({
@@ -23,7 +27,7 @@ export const ExpansionPanel: FC<ExpansionPanelProps> = ({
   title,
   contextId,
   unmanaged,
-  ...rest
+  buttonProps = {},
 }) => {
   const expansionPanelContext = useExpansionPanelContext();
   const hasStateManagement = unmanaged !== true && expansionPanelContext;
@@ -46,11 +50,10 @@ export const ExpansionPanel: FC<ExpansionPanelProps> = ({
           ? (isActive && true) || false
           : undefined
       }
-      css={[expansionPanelStyles]}
+      css={expansionPanelStyles}
     >
       <summary
-        // TODO: fix temp styles
-        css={{ display: 'flex', alignItems: 'center', height: '100%' }}
+        tabIndex={-1}
         onClick={
           hasStateManagement && contextId
             ? (e) => {
@@ -62,18 +65,15 @@ export const ExpansionPanel: FC<ExpansionPanelProps> = ({
             : undefined
         }
       >
-        <span
-          // TODO: fix temp styles
-          css={{
-            padding: '5px 10px',
-            background: 'lightgrey',
-            borderRadius: '4px',
-            border: 'solid grey thin',
-            cursor: 'pointer',
-          }}
+        <Button
+          as="span"
+          size="s"
+          variant="secondary"
+          tabIndex={0}
+          {...buttonProps}
         >
           {title}
-        </span>
+        </Button>
       </summary>
       {children}
     </details>

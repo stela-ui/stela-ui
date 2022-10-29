@@ -1,7 +1,8 @@
+export * from './components/Container/Container';
 export * from './components/Table/Table';
 export * from './components/Table/TableRow';
 export * from './components/Table/TableCell';
-export * from './components/Stack/Stack';
+export * from './components/Flex/Flex';
 export * from './components/Spacing/Spacing';
 export * from './components/Button/Button';
 export * from './components/ExpansionPanel/ExpansionPanel';
@@ -9,3 +10,4 @@ export * from './components/ExpansionPanel/ExpansionPanelContext';
 export * from './components/SelectInput/SelectInput';
 export * from './components/TextInput/TextInput';
 export * from './components/ToggleInput/ToggleInput';
+export * from './components/GlobalStyles/GlobalStyles';

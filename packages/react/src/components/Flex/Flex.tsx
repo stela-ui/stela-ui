@@ -1,14 +1,14 @@
-import type { StackStylesProps } from '@stela-ui/css';
-import { stackStyles } from '@stela-ui/css';
+import type { FlexStylesProps } from '@stela-ui/css';
+import { flexStyles } from '@stela-ui/css';
 import type { FC, ReactNode } from 'react';
 
 import type { GenericComponentProps } from '../types';
 
-export interface StackProps extends StackStylesProps, GenericComponentProps {
+export interface FlexProps extends FlexStylesProps, GenericComponentProps {
   children: ReactNode | ReactNode[];
 }
 
-export const Stack: FC<StackProps> = ({
+export const Flex: FC<FlexProps> = ({
   children,
   id,
   className,
@@ -17,7 +17,7 @@ export const Stack: FC<StackProps> = ({
 }) => {
   return (
     <div
-      css={stackStyles(rest)}
+      css={flexStyles(rest)}
       id={id}
       className={className}
       data-testid={testId}

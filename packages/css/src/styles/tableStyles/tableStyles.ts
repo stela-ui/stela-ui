@@ -1,18 +1,40 @@
 import type { ResponsiveStyleValue } from '@theme-ui/css';
 import { css as createStyleObject } from '@theme-ui/css';
 
+import type { Theme } from '../../theme';
 import type { ComponentStyles } from '../../types/componentStyles';
 import { convertResponsiveValue } from '../../utils';
 
 export interface TableStylesProps {
   columns: ResponsiveStyleValue<number>;
+  backgroundColorOdd?: keyof Theme['colors'];
+  backgroundColorEven?: keyof Theme['colors'];
 }
 
+// TODO: think about better way to style the expansion panel
 export const tableStyles: ComponentStyles<TableStylesProps> =
-  ({ columns }) =>
+  ({ columns, backgroundColorOdd, backgroundColorEven }) =>
   (theme) =>
     [
-      { display: 'grid' },
+      {
+        display: 'grid',
+        ...(backgroundColorOdd
+          ? {
+              '> *:nth-child(odd) > *, > *:nth-child(even) summary, > *:nth-child(even) details > div':
+                {
+                  background: theme.colors[backgroundColorOdd],
+                },
+            }
+          : {}),
+        ...(backgroundColorEven
+          ? {
+              '> *:nth-child(even) > *, > *:nth-child(even) summary, > *:nth-child(even) details > div':
+                {
+                  background: theme.colors[backgroundColorEven],
+                },
+            }
+          : {}),
+      },
       createStyleObject({
         gridTemplateColumns: convertResponsiveValue(
           columns,
@@ -21,7 +43,9 @@ export const tableStyles: ComponentStyles<TableStylesProps> =
       })(theme),
     ];
 
-export const tableRowStyles: ComponentStyles = { display: 'contents' };
+export const tableRowStyles: ComponentStyles = {
+  display: 'contents',
+};
 
 export interface TableCellStylesProps {
   columnStart?: ResponsiveStyleValue<number>;

@@ -1,10 +1,10 @@
 import { render } from '@testing-library/react';
 
-import { Stack } from './Stack';
+import Container from './Container';
 
-describe('Stack', () => {
+describe('Container', () => {
   it('should render successfully', () => {
-    const { baseElement } = render(<Stack>child</Stack>);
+    const { baseElement } = render(<Container>child</Container>);
     expect(baseElement).toBeTruthy();
   });
 });

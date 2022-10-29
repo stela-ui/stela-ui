@@ -1,9 +1,9 @@
 import { render } from '../../utils/test';
-import { TextInput } from './TextInput';
+import { Flex } from './Flex';
 
-describe('TextInput', () => {
+describe('Flex', () => {
   it('should render successfully', () => {
-    const { baseElement } = render(<TextInput />);
+    const { baseElement } = render(<Flex>child</Flex>);
     expect(baseElement).toBeTruthy();
   });
 });

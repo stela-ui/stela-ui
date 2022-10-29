@@ -1,5 +1,4 @@
-import { render } from '@testing-library/react';
-
+import { render } from '../../utils/test';
 import { ExpansionPanel } from './ExpansionPanel';
 
 describe('ExpansionPanel', () => {

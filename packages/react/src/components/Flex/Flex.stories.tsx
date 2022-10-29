@@ -2,13 +2,13 @@ import { css } from '@emotion/react';
 import { theme } from '@stela-ui/css';
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { Stack } from './Stack';
+import { Flex } from './Flex';
 
 const spaces = theme.space.map((_, i) => i);
 
-const StackConfig: ComponentMeta<typeof Stack> = {
-  component: Stack,
-  title: 'Layout/Stack',
+const FlexConfig: ComponentMeta<typeof Flex> = {
+  component: Flex,
+  title: 'Layout/Flex',
   argTypes: {
     gap: { options: spaces, control: 'select' },
     flow: {
@@ -21,14 +21,14 @@ const StackConfig: ComponentMeta<typeof Stack> = {
     columnGap: { options: spaces, control: 'select' },
     rowGap: { options: spaces, control: 'select' },
     wrap: { control: 'boolean' },
-    justifyX: {
+    alignX: {
       defaultValue: {
         summary: 'flex-start',
       },
       options: ['flex-start', 'flex-end', 'stretch', 'center'],
       control: 'select',
     },
-    justifyY: {
+    alignY: {
       defaultValue: {
         summary: 'flex-start',
       },
@@ -38,7 +38,7 @@ const StackConfig: ComponentMeta<typeof Stack> = {
   },
 };
 
-export default StackConfig;
+export default FlexConfig;
 
 const styles = {
   outerBox: css`
@@ -54,13 +54,13 @@ const styles = {
   `,
 };
 
-const Template: ComponentStory<typeof Stack> = (args) => (
+const Template: ComponentStory<typeof Flex> = (args) => (
   <div css={styles.outerBox}>
-    <Stack {...args}>
+    <Flex {...args}>
       <span css={styles.innerBox} />
       <span css={styles.innerBox} />
       <span css={styles.innerBox} />
-    </Stack>
+    </Flex>
   </div>
 );
 
@@ -68,22 +68,22 @@ export const Column = Template.bind({});
 Column.args = {
   gap: 3,
   flow: 'row',
-  justifyX: 'stretch',
-  justifyY: 'stretch',
+  alignX: 'stretch',
+  alignY: 'stretch',
 };
 
 export const Row = Template.bind({});
 Row.args = {
   gap: 3,
   flow: 'row',
-  justifyX: 'flex-start',
-  justifyY: 'flex-start',
+  alignX: 'flex-start',
+  alignY: 'flex-start',
 };
 
 export const Responsive = Template.bind({});
 Responsive.args = {
   gap: 3,
   flow: ['row', null, 'column'],
-  justifyY: ['stretch', 'flex-start', null, 'stretch'],
-  justifyX: ['stretch', 'flex-end', 'flex-start'],
+  alignY: ['stretch', 'flex-start', null, 'stretch'],
+  alignX: ['stretch', 'flex-end', 'flex-start'],
 };

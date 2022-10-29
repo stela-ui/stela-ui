@@ -2,10 +2,10 @@ import type { ResponsiveStyleValue } from '@theme-ui/css';
 import { css as createStyleObject } from '@theme-ui/css';
 
 import type { ComponentStyles } from '../../types/componentStyles';
-import type { ConverterFn, FlexJustifyProps } from '../../utils';
+import type { ConverterFn, FlexAlignProps } from '../../utils';
 import { convertResponsiveValue, flexJustifyConverter } from '../../utils';
 
-export interface StackStylesProps extends FlexJustifyProps {
+export interface FlexStylesProps extends FlexAlignProps {
   rowGap?: ResponsiveStyleValue<number>;
   gap?: ResponsiveStyleValue<number>;
   columnGap?: ResponsiveStyleValue<number>;
@@ -18,11 +18,11 @@ const flexWrapConverter: ConverterFn<
 > = (value) =>
   (value === true && 'wrap') || (value === false && 'nowrap') || null;
 
-export const stackStyles: ComponentStyles<StackStylesProps> =
+export const flexStyles: ComponentStyles<FlexStylesProps> =
   ({
     flow = 'column',
-    justifyX = 'flex-start',
-    justifyY = 'flex-start',
+    alignX = 'flex-start',
+    alignY = 'flex-start',
     wrap,
     ...rest
   }) =>
@@ -32,6 +32,6 @@ export const stackStyles: ComponentStyles<StackStylesProps> =
       createStyleObject({
         ...rest,
         flexWrap: convertResponsiveValue(wrap, flexWrapConverter),
-        ...flexJustifyConverter({ flow, justifyY, justifyX }),
+        ...flexJustifyConverter({ flow, alignY, alignX }),
       })(theme),
     ];

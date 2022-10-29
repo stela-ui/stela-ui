@@ -1,16 +1,21 @@
-// import type { TextInputStylesProps } from '@stela-ui/css';
-// import { textInputStyles } from '@stela-ui/css';
+import type {
+  BasicInputStylesProps,
+  InputLabelStylesProps,
+} from '@stela-ui/css';
+import { basicInputStyles, inputLabelStyles } from '@stela-ui/css';
 import type { FC } from 'react';
 
 import type { GenericComponentProps } from '../types';
 
 export interface TextInputProps
-  // TextInputStylesProps,
-  extends GenericComponentProps {
+  extends GenericComponentProps,
+    BasicInputStylesProps,
+    InputLabelStylesProps {
   type?: 'text' | 'number';
   name?: string;
   label?: string;
   defaultValue?: string | number;
+  placeholder?: string;
   onChange?: (value: string | number) => void | unknown;
 }
 
@@ -23,18 +28,21 @@ export const TextInput: FC<TextInputProps> = ({
   defaultValue,
   name,
   label,
-  ...rest
+  labelPosition,
+  placeholder,
+  hasError,
 }) => {
   return (
     <div className={className}>
-      <span>{label}</span>
+      <span css={inputLabelStyles({ labelPosition })}>{label}</span>
       <input
-        // css={textInputStyles(rest)}
+        css={basicInputStyles({ hasError })}
         id={id}
         data-testid={testId}
         type={type}
         name={name}
         defaultValue={defaultValue}
+        placeholder={placeholder}
         onChange={
           onChange
             ? (e) => {
