@@ -2,6 +2,14 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## 0.1.0 (2022-10-29)
+
+### Features
+
+- add components that will be used in dynamic msw ([#6](https://github.com/stela-ui/stela-ui/issues/6)) ([3e7b097](https://github.com/stela-ui/stela-ui/commit/3e7b09769b3c5818e8c044ee999633ae676f347f))
+- add single table row bg color prop ([f168553](https://github.com/stela-ui/stela-ui/commit/f16855393316440c61a0d93f1ee140dd78aab2a3))
+- style components properly ([#8](https://github.com/stela-ui/stela-ui/issues/8)) ([19fd30c](https://github.com/stela-ui/stela-ui/commit/19fd30c0d2eb54e262cb7b17ab77ea68af1bdd86))
+
 ### [0.0.1-beta.1](https://github.com/stela-ui/stela-ui/compare/react-0.0.1-beta.0...react-0.0.1-beta.1) (2022-10-29)
 
 ### 0.0.1-beta.0 (2022-10-29)
