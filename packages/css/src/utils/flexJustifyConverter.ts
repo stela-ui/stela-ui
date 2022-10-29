@@ -72,27 +72,27 @@ const alignConverter = ({ flow, alignX, alignY }: AlignConverterArg) => {
   const flexGrow: FlexGrowValue[] = [];
 
   let lastFlowValue: string;
-  let lastalignXValue: JustifyResponsiveValue = alignXIsArray ? null : alignX;
-  let lastalignYValue: JustifyResponsiveValue = alignYIsArray ? null : alignY;
+  let lastAlignXValue: JustifyResponsiveValue = alignXIsArray ? null : alignX;
+  let lastAlignYValue: JustifyResponsiveValue = alignYIsArray ? null : alignY;
 
   filledFlow.forEach((currFlow, i) => {
-    const curralignXValue = (alignXIsArray && alignX[i]) || null;
-    const curralignYValue = (alignYIsArray && alignY[i]) || null;
-    const currOrLastalignXValue = curralignXValue || lastalignXValue;
-    const currOrLastalignYValue = curralignYValue || lastalignYValue;
+    const currAlignXValue = (alignXIsArray && alignX[i]) || null;
+    const currAlignYValue = (alignYIsArray && alignY[i]) || null;
+    const currOrLastAlignXValue = currAlignXValue || lastAlignXValue;
+    const currOrLastAlignYValue = currAlignYValue || lastAlignYValue;
     const currIsRow = currFlow === 'row';
     const currOrLastIsRow = currIsRow || lastFlowValue === 'row';
 
     if (currFlow && currFlow !== lastFlowValue) {
       alignItems.push(
-        currIsRow ? currOrLastalignYValue : currOrLastalignXValue
+        currIsRow ? currOrLastAlignYValue : currOrLastAlignXValue
       );
       justifyContent.push(
-        currIsRow ? currOrLastalignXValue : currOrLastalignYValue
+        currIsRow ? currOrLastAlignXValue : currOrLastAlignYValue
       );
-      const lastStretchValue = currIsRow ? lastalignYValue : lastalignXValue;
+      const lastStretchValue = currIsRow ? lastAlignYValue : lastAlignXValue;
 
-      const currStretchValue = currIsRow ? curralignXValue : curralignYValue;
+      const currStretchValue = currIsRow ? currAlignXValue : currAlignYValue;
 
       flexGrow.push(
         (lastStretchValue === 'stretch' &&
@@ -102,11 +102,11 @@ const alignConverter = ({ flow, alignX, alignY }: AlignConverterArg) => {
           null
       );
     } else {
-      alignItems.push(currOrLastIsRow ? curralignYValue : curralignXValue);
-      justifyContent.push(currOrLastIsRow ? curralignXValue : curralignYValue);
+      alignItems.push(currOrLastIsRow ? currAlignYValue : currAlignXValue);
+      justifyContent.push(currOrLastIsRow ? currAlignXValue : currAlignYValue);
       const currFlexGrowType = currOrLastIsRow
-        ? curralignXValue
-        : curralignYValue;
+        ? currAlignXValue
+        : currAlignYValue;
 
       flexGrow.push(
         (currFlexGrowType === 'stretch' && 1) ||
@@ -114,8 +114,8 @@ const alignConverter = ({ flow, alignX, alignY }: AlignConverterArg) => {
           null
       );
     }
-    lastalignXValue = currOrLastalignXValue;
-    lastalignYValue = currOrLastalignYValue;
+    lastAlignXValue = currOrLastAlignXValue;
+    lastAlignYValue = currOrLastAlignYValue;
     lastFlowValue = currFlow || lastFlowValue;
   });
   return {
