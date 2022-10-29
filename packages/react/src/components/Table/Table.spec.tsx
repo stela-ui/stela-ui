@@ -1,5 +1,4 @@
-import { render } from '@testing-library/react';
-
+import { render } from '../../utils/test';
 import { Table } from './Table';
 import { TableCell } from './TableCell';
 import { TableRow } from './TableRow';
