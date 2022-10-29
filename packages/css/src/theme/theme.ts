@@ -15,6 +15,7 @@ export const colors = {
   dullLavender: '#9f9fe6',
   meteorite: '#3c256c',
   magnolia: '#f5f5ff',
+  pastelGrey: '#ccc',
 };
 
 const scales = new Array(30)

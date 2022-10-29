@@ -5,6 +5,9 @@ import { ToggleInput } from './ToggleInput';
 const Story: ComponentMeta<typeof ToggleInput> = {
   component: ToggleInput,
   title: 'Input/ToggleInput',
+  argTypes: {
+    size: { control: 'select', options: ['s', 'm', 'l'], defaultValue: 'm' },
+  },
 };
 export default Story;
 

@@ -34,7 +34,7 @@ export const basicInputStyles: ComponentStyles<BasicInputStylesProps> =
         borderRadius: theme.borderRadius[0],
         '&:focus': {
           borderColor: hasError ? 'errorFocus' : 'meteorite',
-          boxShadow: `0px 0px 2px ${theme.colors?.lapisBlue}`,
+          boxShadow: `0px 0px 2px ${theme.colors.lapisBlue}`,
         },
       })(theme),
     ];
