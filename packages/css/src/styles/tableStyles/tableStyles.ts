@@ -52,9 +52,12 @@ export const tableRowStyles: ComponentStyles<TableRowStylesProps> =
   (theme) =>
     [
       { display: 'contents' },
-      createStyleObject(backgroundColor && { '> *': { bg: backgroundColor } })(
-        theme
-      ),
+      createStyleObject(
+        backgroundColor && {
+          // TODO: fix me; important is bad practice
+          '> *': { bg: `${theme.colors[backgroundColor]} !important` },
+        }
+      )(theme),
     ];
 
 export interface TableCellStylesProps {
