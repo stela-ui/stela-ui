@@ -29,6 +29,7 @@ export const buttonStyles: ComponentStyles<ButtonStylesProps> =
     const { variants, sizes, ...buttonStyles } = theme.button || {};
     return [
       {
+        lineHeight: 1.2,
         outline: 'none',
         border: 'none',
         cursor: 'pointer',
