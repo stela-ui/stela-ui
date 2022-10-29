@@ -8,3 +8,4 @@
 1. document html structure for styles
 1. make basic input story arg types re-useable
 1. create eslint config module based on the airbnb ones (it should have WAI-ARIA rules for react but storybook also has this)
+1. cleanup focus styles and make re-usable
