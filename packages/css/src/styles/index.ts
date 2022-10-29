@@ -1,4 +1,4 @@
-export * from './stackStyles/stackStyles';
+export * from './flexStyles/flexStyles';
 export * from './spacingStyles/spacingStyles';
 export * from './sharedSpacingStyles/sharedSpacingStyles';
 export * from './tableStyles/tableStyles';

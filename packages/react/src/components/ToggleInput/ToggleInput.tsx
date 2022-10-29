@@ -1,7 +1,7 @@
 import { toggleInputStyles, inputLabelStyles } from '@stela-ui/css';
 import type { FC } from 'react';
 
-import { Stack } from '../Stack/Stack';
+import { Flex } from '../Flex/Flex';
 import type { GenericComponentProps } from '../types';
 
 export interface ToggleInputProps extends GenericComponentProps {
@@ -19,7 +19,7 @@ export const ToggleInput: FC<ToggleInputProps> = ({
   label,
 }) => {
   return (
-    <Stack className={className} flow="row" alignY="center">
+    <Flex className={className} flow="row" alignY="center">
       <span css={inputLabelStyles({ labelPosition: 'left' })}>{label}</span>
       <div css={toggleInputStyles}>
         <input
@@ -37,6 +37,6 @@ export const ToggleInput: FC<ToggleInputProps> = ({
         />
         <span />
       </div>
-    </Stack>
+    </Flex>
   );
 };

@@ -1,9 +1,9 @@
 import { render } from '../../utils/test';
-import { Stack } from './Stack';
+import { Flex } from './Flex';
 
-describe('Stack', () => {
+describe('Flex', () => {
   it('should render successfully', () => {
-    const { baseElement } = render(<Stack>child</Stack>);
+    const { baseElement } = render(<Flex>child</Flex>);
     expect(baseElement).toBeTruthy();
   });
 });

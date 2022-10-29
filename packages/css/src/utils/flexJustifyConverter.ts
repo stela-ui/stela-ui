@@ -8,17 +8,17 @@ type JustifyType = 'flex-start' | 'flex-end' | 'stretch' | 'center';
 type JustifyResponsiveValue = JustifyType | null | undefined | boolean;
 type FlexGrowValue = 1 | 'initial' | null;
 
-export interface FlexJustifyProps {
+export interface FlexAlignProps {
   flow?: ResponsiveStyleValue<FlowType>;
   alignX?: ResponsiveStyleValue<JustifyType>;
   alignY?: ResponsiveStyleValue<JustifyType>;
 }
 
-interface AlignConverterArg extends FlexJustifyProps {
+interface AlignConverterArg extends FlexAlignProps {
   flow: Array<FlowType | ThemeUIEmpty>;
 }
 
-interface JustifyBaseConverterArg extends FlexJustifyProps {
+interface JustifyBaseConverterArg extends FlexAlignProps {
   flow: FlowType;
 }
 // column alignX === align-items
@@ -131,7 +131,7 @@ export const flexJustifyConverter = ({
   flow,
   alignX,
   alignY,
-}: FlexJustifyProps) =>
+}: FlexAlignProps) =>
   (Array.isArray(flow) && {
     ...alignConverter({ flow, alignX, alignY }),
     flexFlow: flow,

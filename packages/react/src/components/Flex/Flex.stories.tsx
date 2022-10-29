@@ -2,13 +2,13 @@ import { css } from '@emotion/react';
 import { theme } from '@stela-ui/css';
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { Stack } from './Stack';
+import { Flex } from './Flex';
 
 const spaces = theme.space.map((_, i) => i);
 
-const StackConfig: ComponentMeta<typeof Stack> = {
-  component: Stack,
-  title: 'Layout/Stack',
+const FlexConfig: ComponentMeta<typeof Flex> = {
+  component: Flex,
+  title: 'Layout/Flex',
   argTypes: {
     gap: { options: spaces, control: 'select' },
     flow: {
@@ -38,7 +38,7 @@ const StackConfig: ComponentMeta<typeof Stack> = {
   },
 };
 
-export default StackConfig;
+export default FlexConfig;
 
 const styles = {
   outerBox: css`
@@ -54,13 +54,13 @@ const styles = {
   `,
 };
 
-const Template: ComponentStory<typeof Stack> = (args) => (
+const Template: ComponentStory<typeof Flex> = (args) => (
   <div css={styles.outerBox}>
-    <Stack {...args}>
+    <Flex {...args}>
       <span css={styles.innerBox} />
       <span css={styles.innerBox} />
       <span css={styles.innerBox} />
-    </Stack>
+    </Flex>
   </div>
 );
 

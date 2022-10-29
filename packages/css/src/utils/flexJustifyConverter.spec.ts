@@ -1,4 +1,4 @@
-import type { FlexJustifyProps } from './flexJustifyConverter';
+import type { FlexAlignProps } from './flexJustifyConverter';
 import { flexJustifyConverter } from './flexJustifyConverter';
 // column alignX === align-items
 // column alignY === justify-content && stretch === > * flex-grow: 1;
@@ -42,7 +42,7 @@ describe('utils -> flexJustifyConverter', () => {
       alignY: ['stretch', null, 'flex-start', null, 'stretch'],
       alignX: ['stretch', 'flex-end', null],
     };
-    expect(flexJustifyConverter(props as FlexJustifyProps)).toEqual({
+    expect(flexJustifyConverter(props as FlexAlignProps)).toEqual({
       alignItems: [
         props.alignY[0],
         props.alignY[1],
