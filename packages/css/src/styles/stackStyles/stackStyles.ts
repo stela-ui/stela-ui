@@ -21,8 +21,8 @@ const flexWrapConverter: ConverterFn<
 export const stackStyles: ComponentStyles<StackStylesProps> =
   ({
     flow = 'column',
-    justifyX = 'flex-start',
-    justifyY = 'flex-start',
+    alignX = 'flex-start',
+    alignY = 'flex-start',
     wrap,
     ...rest
   }) =>
@@ -32,6 +32,6 @@ export const stackStyles: ComponentStyles<StackStylesProps> =
       createStyleObject({
         ...rest,
         flexWrap: convertResponsiveValue(wrap, flexWrapConverter),
-        ...flexJustifyConverter({ flow, justifyY, justifyX }),
+        ...flexJustifyConverter({ flow, alignY, alignX }),
       })(theme),
     ];

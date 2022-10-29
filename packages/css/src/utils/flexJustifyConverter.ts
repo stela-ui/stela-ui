@@ -10,8 +10,8 @@ type FlexGrowValue = 1 | 'initial' | null;
 
 export interface FlexJustifyProps {
   flow?: ResponsiveStyleValue<FlowType>;
-  justifyX?: ResponsiveStyleValue<JustifyType>;
-  justifyY?: ResponsiveStyleValue<JustifyType>;
+  alignX?: ResponsiveStyleValue<JustifyType>;
+  alignY?: ResponsiveStyleValue<JustifyType>;
 }
 
 interface AlignConverterArg extends FlexJustifyProps {
@@ -21,11 +21,11 @@ interface AlignConverterArg extends FlexJustifyProps {
 interface JustifyBaseConverterArg extends FlexJustifyProps {
   flow: FlowType;
 }
-// column justifyX === align-items
-// column justifyY === justify-content && stretch === > * flex-grow: 1;
+// column alignX === align-items
+// column alignY === justify-content && stretch === > * flex-grow: 1;
 
-// row justifyX === justify-content && stretch === > * flex-grow: 1;
-// row justifyY === align-items
+// row alignX === justify-content && stretch === > * flex-grow: 1;
+// row alignY === align-items
 
 const flexGrowConverter: ConverterFn<
   ResponsiveStyleValue<JustifyType>,
@@ -37,29 +37,29 @@ const flexGrowConverter: ConverterFn<
 
 const justifyBaseConverter = ({
   flow,
-  justifyX,
-  justifyY,
+  alignX,
+  alignY,
 }: JustifyBaseConverterArg) => {
   const isRow = flow === 'row';
   return {
     '> *': {
       flexGrow: convertResponsiveValue(
-        isRow ? justifyX : justifyY,
+        isRow ? alignX : alignY,
         flexGrowConverter
       ),
     },
     flexFlow: flow,
-    alignItems: isRow ? justifyY : justifyX,
-    justifyContent: isRow ? justifyX : justifyY,
+    alignItems: isRow ? alignY : alignX,
+    justifyContent: isRow ? alignX : alignY,
   };
 };
 
-const alignConverter = ({ flow, justifyX, justifyY }: AlignConverterArg) => {
-  const justifyXIsArray = Array.isArray(justifyX);
-  const justifyYIsArray = Array.isArray(justifyY);
+const alignConverter = ({ flow, alignX, alignY }: AlignConverterArg) => {
+  const alignXIsArray = Array.isArray(alignX);
+  const alignYIsArray = Array.isArray(alignY);
   const maxLength = Math.max(
-    (justifyXIsArray && justifyX.length) || 0,
-    (justifyYIsArray && justifyY.length) || 0
+    (alignXIsArray && alignX.length) || 0,
+    (alignYIsArray && alignY.length) || 0
   );
 
   const filledFlow =
@@ -72,35 +72,27 @@ const alignConverter = ({ flow, justifyX, justifyY }: AlignConverterArg) => {
   const flexGrow: FlexGrowValue[] = [];
 
   let lastFlowValue: string;
-  let lastJustifyXValue: JustifyResponsiveValue = justifyXIsArray
-    ? null
-    : justifyX;
-  let lastJustifyYValue: JustifyResponsiveValue = justifyYIsArray
-    ? null
-    : justifyY;
+  let lastalignXValue: JustifyResponsiveValue = alignXIsArray ? null : alignX;
+  let lastalignYValue: JustifyResponsiveValue = alignYIsArray ? null : alignY;
 
   filledFlow.forEach((currFlow, i) => {
-    const currJustifyXValue = (justifyXIsArray && justifyX[i]) || null;
-    const currJustifyYValue = (justifyYIsArray && justifyY[i]) || null;
-    const currOrLastJustifyXValue = currJustifyXValue || lastJustifyXValue;
-    const currOrLastJustifyYValue = currJustifyYValue || lastJustifyYValue;
+    const curralignXValue = (alignXIsArray && alignX[i]) || null;
+    const curralignYValue = (alignYIsArray && alignY[i]) || null;
+    const currOrLastalignXValue = curralignXValue || lastalignXValue;
+    const currOrLastalignYValue = curralignYValue || lastalignYValue;
     const currIsRow = currFlow === 'row';
     const currOrLastIsRow = currIsRow || lastFlowValue === 'row';
 
     if (currFlow && currFlow !== lastFlowValue) {
       alignItems.push(
-        currIsRow ? currOrLastJustifyYValue : currOrLastJustifyXValue
+        currIsRow ? currOrLastalignYValue : currOrLastalignXValue
       );
       justifyContent.push(
-        currIsRow ? currOrLastJustifyXValue : currOrLastJustifyYValue
+        currIsRow ? currOrLastalignXValue : currOrLastalignYValue
       );
-      const lastStretchValue = currIsRow
-        ? lastJustifyYValue
-        : lastJustifyXValue;
+      const lastStretchValue = currIsRow ? lastalignYValue : lastalignXValue;
 
-      const currStretchValue = currIsRow
-        ? currJustifyXValue
-        : currJustifyYValue;
+      const currStretchValue = currIsRow ? curralignXValue : curralignYValue;
 
       flexGrow.push(
         (lastStretchValue === 'stretch' &&
@@ -110,13 +102,11 @@ const alignConverter = ({ flow, justifyX, justifyY }: AlignConverterArg) => {
           null
       );
     } else {
-      alignItems.push(currOrLastIsRow ? currJustifyYValue : currJustifyXValue);
-      justifyContent.push(
-        currOrLastIsRow ? currJustifyXValue : currJustifyYValue
-      );
+      alignItems.push(currOrLastIsRow ? curralignYValue : curralignXValue);
+      justifyContent.push(currOrLastIsRow ? curralignXValue : curralignYValue);
       const currFlexGrowType = currOrLastIsRow
-        ? currJustifyXValue
-        : currJustifyYValue;
+        ? curralignXValue
+        : curralignYValue;
 
       flexGrow.push(
         (currFlexGrowType === 'stretch' && 1) ||
@@ -124,8 +114,8 @@ const alignConverter = ({ flow, justifyX, justifyY }: AlignConverterArg) => {
           null
       );
     }
-    lastJustifyXValue = currOrLastJustifyXValue;
-    lastJustifyYValue = currOrLastJustifyYValue;
+    lastalignXValue = currOrLastalignXValue;
+    lastalignYValue = currOrLastalignYValue;
     lastFlowValue = currFlow || lastFlowValue;
   });
   return {
@@ -139,13 +129,13 @@ const alignConverter = ({ flow, justifyX, justifyY }: AlignConverterArg) => {
 
 export const flexJustifyConverter = ({
   flow,
-  justifyX,
-  justifyY,
+  alignX,
+  alignY,
 }: FlexJustifyProps) =>
   (Array.isArray(flow) && {
-    ...alignConverter({ flow, justifyX, justifyY }),
+    ...alignConverter({ flow, alignX, alignY }),
     flexFlow: flow,
   }) ||
   (typeof flow === 'string' &&
-    justifyBaseConverter({ flow, justifyX, justifyY })) ||
+    justifyBaseConverter({ flow, alignX, alignY })) ||
   {};

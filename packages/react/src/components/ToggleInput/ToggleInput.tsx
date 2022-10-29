@@ -19,7 +19,7 @@ export const ToggleInput: FC<ToggleInputProps> = ({
   label,
 }) => {
   return (
-    <Stack className={className} flow="row" justifyY="center">
+    <Stack className={className} flow="row" alignY="center">
       <span css={inputLabelStyles({ labelPosition: 'left' })}>{label}</span>
       <div css={toggleInputStyles}>
         <input

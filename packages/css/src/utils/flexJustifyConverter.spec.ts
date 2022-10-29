@@ -1,18 +1,18 @@
 import type { FlexJustifyProps } from './flexJustifyConverter';
 import { flexJustifyConverter } from './flexJustifyConverter';
-// column justifyX === align-items
-// column justifyY === justify-content && stretch === > * flex-grow: 1;
+// column alignX === align-items
+// column alignY === justify-content && stretch === > * flex-grow: 1;
 
-// row justifyY === align-items && stretch === > * flex-grow: 1;
-// row justifyX === justify-content
+// row alignY === align-items && stretch === > * flex-grow: 1;
+// row alignX === justify-content
 
 describe('utils -> flexJustifyConverter', () => {
   it('returns proper value when non responsive and flow is column', () => {
     expect(
       flexJustifyConverter({
         flow: 'column',
-        justifyY: 'stretch',
-        justifyX: 'stretch',
+        alignY: 'stretch',
+        alignX: 'stretch',
       })
     ).toEqual({
       flexFlow: 'column',
@@ -25,8 +25,8 @@ describe('utils -> flexJustifyConverter', () => {
     expect(
       flexJustifyConverter({
         flow: 'row',
-        justifyY: 'stretch',
-        justifyX: 'stretch',
+        alignY: 'stretch',
+        alignX: 'stretch',
       })
     ).toEqual({
       flexFlow: 'row',
@@ -39,26 +39,26 @@ describe('utils -> flexJustifyConverter', () => {
   it('returns proper value when passing responsive values', () => {
     const props = {
       flow: ['row', null, null, 'column'],
-      justifyY: ['stretch', null, 'flex-start', null, 'stretch'],
-      justifyX: ['stretch', 'flex-end', null],
+      alignY: ['stretch', null, 'flex-start', null, 'stretch'],
+      alignX: ['stretch', 'flex-end', null],
     };
     expect(flexJustifyConverter(props as FlexJustifyProps)).toEqual({
       alignItems: [
-        props.justifyY[0],
-        props.justifyY[1],
-        props.justifyY[2],
+        props.alignY[0],
+        props.alignY[1],
+        props.alignY[2],
         // swapped to column, last value was at index 1
-        props.justifyX[1],
+        props.alignX[1],
         null,
       ],
       flexFlow: props.flow,
       justifyContent: [
-        props.justifyX[0],
-        props.justifyX[1],
-        props.justifyX[2],
+        props.alignX[0],
+        props.alignX[1],
+        props.alignX[2],
         // swapped to column, last value was at index 2
-        props.justifyY[2],
-        props.justifyY[4],
+        props.alignY[2],
+        props.alignY[4],
       ],
       '> *': {
         flexGrow: [

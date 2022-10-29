@@ -21,14 +21,14 @@ const StackConfig: ComponentMeta<typeof Stack> = {
     columnGap: { options: spaces, control: 'select' },
     rowGap: { options: spaces, control: 'select' },
     wrap: { control: 'boolean' },
-    justifyX: {
+    alignX: {
       defaultValue: {
         summary: 'flex-start',
       },
       options: ['flex-start', 'flex-end', 'stretch', 'center'],
       control: 'select',
     },
-    justifyY: {
+    alignY: {
       defaultValue: {
         summary: 'flex-start',
       },
@@ -68,22 +68,22 @@ export const Column = Template.bind({});
 Column.args = {
   gap: 3,
   flow: 'row',
-  justifyX: 'stretch',
-  justifyY: 'stretch',
+  alignX: 'stretch',
+  alignY: 'stretch',
 };
 
 export const Row = Template.bind({});
 Row.args = {
   gap: 3,
   flow: 'row',
-  justifyX: 'flex-start',
-  justifyY: 'flex-start',
+  alignX: 'flex-start',
+  alignY: 'flex-start',
 };
 
 export const Responsive = Template.bind({});
 Responsive.args = {
   gap: 3,
   flow: ['row', null, 'column'],
-  justifyY: ['stretch', 'flex-start', null, 'stretch'],
-  justifyX: ['stretch', 'flex-end', 'flex-start'],
+  alignY: ['stretch', 'flex-start', null, 'stretch'],
+  alignX: ['stretch', 'flex-end', 'flex-start'],
 };
