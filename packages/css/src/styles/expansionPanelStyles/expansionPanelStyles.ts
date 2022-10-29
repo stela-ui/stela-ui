@@ -5,6 +5,7 @@ export const expansionPanelStyles: ComponentStyles = {
   summary: {
     outline: 'none',
     border: 'none',
+    height: '100%',
     display: 'flex',
     alignItems: 'center',
   },
