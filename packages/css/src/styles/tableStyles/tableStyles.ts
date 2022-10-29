@@ -43,9 +43,19 @@ export const tableStyles: ComponentStyles<TableStylesProps> =
       })(theme),
     ];
 
-export const tableRowStyles: ComponentStyles = {
-  display: 'contents',
-};
+export interface TableRowStylesProps {
+  backgroundColor?: keyof Theme['colors'];
+}
+
+export const tableRowStyles: ComponentStyles<TableRowStylesProps> =
+  ({ backgroundColor }) =>
+  (theme) =>
+    [
+      { display: 'contents' },
+      createStyleObject(backgroundColor && { '> *': { bg: backgroundColor } })(
+        theme
+      ),
+    ];
 
 export interface TableCellStylesProps {
   columnStart?: ResponsiveStyleValue<number>;
