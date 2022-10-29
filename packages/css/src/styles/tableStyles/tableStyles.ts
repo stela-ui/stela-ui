@@ -20,7 +20,7 @@ export const tableStyles: ComponentStyles<TableStylesProps> =
         display: 'grid',
         ...(backgroundColorOdd
           ? {
-              '> *:nth-child(odd) > *, > *:nth-child(even) summary, > *:nth-child(even) details > div':
+              '> *:nth-child(odd) > *, > *:nth-child(odd) summary, > *:nth-child(odd) details > div':
                 {
                   background: theme.colors[backgroundColorOdd],
                 },
