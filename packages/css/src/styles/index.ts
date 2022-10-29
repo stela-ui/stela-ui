@@ -7,3 +7,4 @@ export * from './buttonStyles/buttonStyles';
 export * from './inputStyles/inputStyles';
 export * from './globalStyles/globalStyles';
 export * from './toggleInputStyles/toggleInputStyles';
+export * from './containerStyles/containerStyles';

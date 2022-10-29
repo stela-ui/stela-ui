@@ -1,3 +1,4 @@
+export * from './components/Container/Container';
 export * from './components/Table/Table';
 export * from './components/Table/TableRow';
 export * from './components/Table/TableCell';
