@@ -1,3 +1,4 @@
+import { theme } from '@stela-ui/css';
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { ExpansionPanel } from '../ExpansionPanel/ExpansionPanel';
@@ -6,9 +7,21 @@ import { Table } from './Table';
 import { TableCell } from './TableCell';
 import { TableRow } from './TableRow';
 
+const colorKeys = Object.keys(theme.colors);
+
 const Story: ComponentMeta<typeof Table> = {
   component: Table,
   title: 'General/Table',
+  argTypes: {
+    backgroundColorOdd: {
+      control: 'select',
+      options: colorKeys,
+    },
+    backgroundColorEven: {
+      control: 'select',
+      options: colorKeys,
+    },
+  },
 };
 export default Story;
 

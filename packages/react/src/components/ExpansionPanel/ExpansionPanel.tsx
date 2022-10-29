@@ -50,11 +50,10 @@ export const ExpansionPanel: FC<ExpansionPanelProps> = ({
           ? (isActive && true) || false
           : undefined
       }
-      css={[expansionPanelStyles]}
+      css={expansionPanelStyles}
     >
       <summary
-        // TODO: fix temp styles
-        css={{ display: 'flex', alignItems: 'center', height: '100%' }}
+        tabIndex={-1}
         onClick={
           hasStateManagement && contextId
             ? (e) => {
@@ -66,7 +65,13 @@ export const ExpansionPanel: FC<ExpansionPanelProps> = ({
             : undefined
         }
       >
-        <Button as="span" size="s" variant="secondary" {...buttonProps}>
+        <Button
+          as="span"
+          size="s"
+          variant="secondary"
+          tabIndex={0}
+          {...buttonProps}
+        >
           {title}
         </Button>
       </summary>

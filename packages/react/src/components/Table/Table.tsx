@@ -16,14 +16,15 @@ export const Table: FC<TableProps> = ({
   'data-testid': testId,
   columns,
   className,
-  ...rest
+  backgroundColorOdd,
+  backgroundColorEven,
 }) => {
   return (
     <div
       id={id}
       className={className}
       data-testid={testId}
-      css={tableStyles({ columns })}
+      css={tableStyles({ columns, backgroundColorOdd, backgroundColorEven })}
     >
       {children}
     </div>

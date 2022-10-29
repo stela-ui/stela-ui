@@ -5,6 +5,7 @@ export const colors = {
   white: '#fff',
   error: '#ff0064',
   errorFocus: '#b00849',
+  purplishRed: '#b00849',
   warmPink: '#f64c71',
   lapisBlue: '#242482',
   mulledWine: '#563d67',
@@ -16,6 +17,8 @@ export const colors = {
   meteorite: '#3c256c',
   magnolia: '#f5f5ff',
   pastelGrey: '#ccc',
+  japaneseLaurel: '#076307',
+  alabaster: '#fcfaff',
 };
 
 const scales = new Array(30)
@@ -54,14 +57,23 @@ export const theme = {
       primary: {
         background: colors.warmPink,
         color: colors.white,
+        '&:focus': {
+          outlineColor: colors.purplishRed,
+        },
       },
       secondary: {
         background: colors.sapphire,
         color: colors.white,
+        '&:focus': {
+          outlineColor: colors.lapisBlue,
+        },
       },
       active: {
         background: colors.romance,
         color: colors.white,
+        '&:focus': {
+          outlineColor: colors.japaneseLaurel,
+        },
       },
     },
   },

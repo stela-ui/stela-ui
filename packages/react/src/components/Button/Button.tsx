@@ -10,6 +10,7 @@ export interface ButtonProps extends ButtonStylesProps, GenericComponentProps {
   disabled?: boolean;
   onClick?: React.MouseEventHandler<HTMLButtonElement | HTMLSpanElement>;
   as?: 'button' | 'span';
+  tabIndex?: number;
 }
 
 export const Button: FC<ButtonProps> = ({
@@ -20,6 +21,7 @@ export const Button: FC<ButtonProps> = ({
   'data-testid': testId,
   type = 'button',
   as = 'button',
+  tabIndex,
   ...rest
 }) => {
   const Element = as;
@@ -33,6 +35,7 @@ export const Button: FC<ButtonProps> = ({
       data-testid={testId}
       onClick={onClick}
       css={buttonStyles(rest)}
+      tabIndex={tabIndex}
       {...(as === 'button' ? buttonProps : {})}
     >
       {children}
