@@ -2,6 +2,12 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+### [0.1.3](https://github.com/stela-ui/stela-ui/compare/react-0.1.2...react-0.1.3) (2022-10-31)
+
+### Dependency Updates
+
+- `css` updated to version `1.1.5`
+
 ### [0.1.2](https://github.com/stela-ui/stela-ui/compare/react-0.1.1...react-0.1.2) (2022-10-31)
 
 ### Dependency Updates

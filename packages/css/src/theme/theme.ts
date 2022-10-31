@@ -18,7 +18,7 @@ export const colors = {
   magnolia: '#f5f5ff',
   pastelGrey: '#ccc',
   japaneseLaurel: '#076307',
-  alabaster: '#fcfaff',
+  alabaster: '#fbfbfb',
   feta: '#effce2',
 };
 

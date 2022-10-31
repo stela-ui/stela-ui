@@ -2,6 +2,12 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+### [1.1.5](https://github.com/stela-ui/stela-ui/compare/css-1.1.4...css-1.1.5) (2022-10-31)
+
+### Bug Fixes
+
+- make alabaster color prettier ([4500cf7](https://github.com/stela-ui/stela-ui/commit/4500cf7bc166096fd6c6a7cbf6db7ecc0a5f3e17))
+
 ### [1.1.4](https://github.com/stela-ui/stela-ui/compare/css-1.1.3...css-1.1.4) (2022-10-31)
 
 ### [1.1.3](https://github.com/stela-ui/stela-ui/compare/css-1.1.2...css-1.1.3) (2022-10-31)
