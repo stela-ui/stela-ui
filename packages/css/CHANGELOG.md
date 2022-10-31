@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+### [1.1.3](https://github.com/stela-ui/stela-ui/compare/css-1.1.2...css-1.1.3) (2022-10-31)
+
+### Bug Fixes
+
+- table row bg and add color ([2e16a91](https://github.com/stela-ui/stela-ui/commit/2e16a91a5368da6b127f3ae081bf37ab52acdd3a))
+- use borders instead of outline for border-radius consistency ([5922141](https://github.com/stela-ui/stela-ui/commit/592214100e8d6c268b5d943db546eada01c9f3f1))
+
 ### [1.1.1](https://github.com/stela-ui/stela-ui/compare/css-1.1.0...css-1.1.1) (2022-10-31)
 
 ## 1.1.0 (2022-10-29)
