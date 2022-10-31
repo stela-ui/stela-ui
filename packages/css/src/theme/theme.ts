@@ -49,6 +49,7 @@ export const theme = {
     px: `.9em`,
     py: `.35em`,
     fontWeight: 'bold',
+    fontFamily: 'sans-serif, Arial, Helvetica',
     sizes: {
       s: '14px',
       m: '18px',
