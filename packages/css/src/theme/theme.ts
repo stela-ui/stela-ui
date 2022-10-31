@@ -46,8 +46,8 @@ export const theme = {
   borderRadius: ['4px', '6px', '8px', '10px'],
   button: {
     borderRadius: '5px',
-    px: `1.1em`,
-    py: `.5em`,
+    px: `.9em`,
+    py: `.35em`,
     fontWeight: 'bold',
     sizes: {
       s: '14px',
@@ -59,21 +59,21 @@ export const theme = {
         background: colors.warmPink,
         color: colors.white,
         '&:focus': {
-          outlineColor: colors.purplishRed,
+          borderColor: colors.purplishRed,
         },
       },
       secondary: {
         background: colors.sapphire,
         color: colors.white,
         '&:focus': {
-          outlineColor: colors.lapisBlue,
+          borderColor: colors.lapisBlue,
         },
       },
       active: {
         background: colors.romance,
         color: colors.white,
         '&:focus': {
-          outlineColor: colors.japaneseLaurel,
+          borderColor: colors.japaneseLaurel,
         },
       },
     },

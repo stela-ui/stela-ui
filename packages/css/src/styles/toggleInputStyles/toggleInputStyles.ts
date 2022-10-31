@@ -34,8 +34,8 @@ export const toggleInputStyles: ComponentStyles<ToggleInputStylesProps> =
       transform: 'translateX(2em)',
     },
     'input:focus + span': {
-      boxShadow: `0px 0px 2px 2px ${theme.colors.lapisBlue}`,
-      outline: `solid 2px ${theme.colors.meteorite}`,
+      boxShadow: `0px 0px 2px ${theme.colors.lapisBlue}`,
+      borderColor: theme.colors.meteorite,
     },
     span: {
       position: 'absolute',
@@ -47,14 +47,15 @@ export const toggleInputStyles: ComponentStyles<ToggleInputStylesProps> =
       backgroundColor: theme.colors.pastelGrey,
       transition: '.1s',
       borderRadius: '3.4em',
+      border: 'solid 2px transparent',
 
       '&:before': {
         position: 'absolute',
         content: '""',
         height: '1.8em',
         width: '1.8em',
-        left: '.2em',
-        bottom: '.2em',
+        left: 'calc(.2em - 2px)',
+        bottom: 'calc(.2em - 2px)',
         backgroundColor: 'white',
         transition: '.4s',
         borderRadius: '50%',

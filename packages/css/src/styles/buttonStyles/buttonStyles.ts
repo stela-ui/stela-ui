@@ -31,12 +31,10 @@ export const buttonStyles: ComponentStyles<ButtonStylesProps> =
       {
         lineHeight: 1.2,
         outline: 'none',
-        border: 'none',
         cursor: 'pointer',
+        border: 'solid 2px transparent',
         '&:focus': {
           boxShadow: `0px 0px 2px ${theme.colors.lapisBlue}`,
-          outline: 'solid 2px',
-          outlineOffset: '-2px',
         },
       },
       getObjectWithVariants(
