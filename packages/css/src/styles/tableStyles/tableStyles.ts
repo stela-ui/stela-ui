@@ -55,7 +55,9 @@ export const tableRowStyles: ComponentStyles<TableRowStylesProps> =
       createStyleObject(
         backgroundColor && {
           // TODO: fix me; important is bad practice
-          '> *': { bg: `${theme.colors[backgroundColor]} !important` },
+          '> *, summary, details > div': {
+            background: `${theme.colors[backgroundColor]} !important`,
+          },
         }
       )(theme),
     ];

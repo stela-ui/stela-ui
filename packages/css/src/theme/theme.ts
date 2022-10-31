@@ -19,6 +19,7 @@ export const colors = {
   pastelGrey: '#ccc',
   japaneseLaurel: '#076307',
   alabaster: '#fcfaff',
+  feta: '#effce2',
 };
 
 const scales = new Array(30)
