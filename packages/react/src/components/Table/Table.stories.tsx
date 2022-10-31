@@ -42,6 +42,22 @@ Primary.args = {
         </TableCell>
         <TableCell>Cell 5</TableCell>
       </TableRow>
+      <TableRow backgroundColor="dullLavender">
+        <TableCell>Individual table row color: Cell 1</TableCell>
+        <TableCell>Cell 2</TableCell>
+        <TableCell>Cell 3</TableCell>
+        <TableCell>Cell 4</TableCell>
+        <TableCell>Cell 5</TableCell>
+        <TableCell>Cell 6</TableCell>
+      </TableRow>
+      <TableRow>
+        <TableCell>Cell 1</TableCell>
+        <TableCell>Cell 2</TableCell>
+        <TableCell>Cell 3</TableCell>
+        <TableCell>Cell 4</TableCell>
+        <TableCell>Cell 5</TableCell>
+        <TableCell>Cell 6</TableCell>
+      </TableRow>
       <TableRow>
         <TableCell>Cell 1</TableCell>
         <TableCell>Cell 2</TableCell>

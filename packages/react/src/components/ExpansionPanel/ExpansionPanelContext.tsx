@@ -21,7 +21,6 @@ export const ExpansionPanelContextProvider: FC<
   ExpansionPanelContextProviderProps
 > = ({ children }) => {
   const [activePanel, setActivePanel] = useState<ActivePanelValue>(null);
-  console.log(activePanel);
   return (
     <ExpansionPanelContext.Provider value={{ activePanel, setActivePanel }}>
       {children}
