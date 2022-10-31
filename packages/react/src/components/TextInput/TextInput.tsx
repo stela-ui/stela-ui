@@ -11,7 +11,7 @@ export interface TextInputProps
   extends GenericComponentProps,
     BasicInputStylesProps,
     InputLabelStylesProps {
-  type?: 'text' | 'number';
+  type?: 'text' | 'number' | 'search' | 'password' | 'email' | 'tel';
   name?: string;
   label?: string;
   defaultValue?: string | number;
