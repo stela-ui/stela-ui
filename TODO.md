@@ -1,3 +1,5 @@
+1. expansion panel is pretty complex to use. It's probably better to build a custom solution.
+1. expansion panel has tabIndex -1 to remove the focus styles.
 1. create storybook for css lib
 1. export storybook params from css lib
 1. create style + story generator for css lib
