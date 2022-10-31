@@ -2,6 +2,8 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+### [1.1.4](https://github.com/stela-ui/stela-ui/compare/css-1.1.3...css-1.1.4) (2022-10-31)
+
 ### [1.1.3](https://github.com/stela-ui/stela-ui/compare/css-1.1.2...css-1.1.3) (2022-10-31)
 
 ### Bug Fixes
