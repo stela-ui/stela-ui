@@ -10,6 +10,7 @@ export interface ToggleInputProps
     ToggleInputStylesProps {
   label?: string;
   defaultChecked?: boolean;
+  checked?: boolean;
   onChange?: (checked: boolean) => void | unknown;
 }
 
@@ -19,6 +20,7 @@ export const ToggleInput: FC<ToggleInputProps> = ({
   'data-testid': testId,
   onChange,
   defaultChecked,
+  checked,
   label,
   size,
 }) => {
@@ -31,6 +33,7 @@ export const ToggleInput: FC<ToggleInputProps> = ({
           id={id}
           data-testid={testId}
           defaultChecked={defaultChecked}
+          checked={checked}
           onChange={
             onChange
               ? (e) => {

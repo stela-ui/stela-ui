@@ -2,6 +2,12 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.2.0](https://github.com/stela-ui/stela-ui/compare/react-0.1.4...react-0.2.0) (2022-11-06)
+
+### Features
+
+- add value prop to inputs ([134cdd8](https://github.com/stela-ui/stela-ui/commit/134cdd8318ce7ea6cf2c20091da0a9df15b14b0f))
+
 ### [0.1.4](https://github.com/stela-ui/stela-ui/compare/react-0.1.3...react-0.1.4) (2022-10-31)
 
 ### Bug Fixes

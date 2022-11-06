@@ -15,6 +15,7 @@ export interface TextInputProps
   name?: string;
   label?: string;
   defaultValue?: string | number;
+  value?: string | number;
   placeholder?: string;
   onChange?: (value: string | number) => void | unknown;
 }
@@ -26,6 +27,7 @@ export const TextInput: FC<TextInputProps> = ({
   type = 'text',
   onChange,
   defaultValue,
+  value,
   name,
   label,
   labelPosition,
@@ -42,6 +44,7 @@ export const TextInput: FC<TextInputProps> = ({
         type={type}
         name={name}
         defaultValue={defaultValue}
+        value={value}
         placeholder={placeholder}
         onChange={
           onChange

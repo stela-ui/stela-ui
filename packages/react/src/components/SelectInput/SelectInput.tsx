@@ -13,6 +13,7 @@ export interface SelectInputProps
     GenericComponentProps {
   label?: string;
   defaultValue?: string | number;
+  value?: string | number;
   name?: string;
   onChange?: (checked: string | number) => void | unknown;
   options: { value: string | number; text?: string | number }[];
@@ -24,6 +25,7 @@ export const SelectInput: FC<SelectInputProps> = ({
   'data-testid': testId,
   onChange,
   defaultValue,
+  value,
   options,
   name,
   label,
@@ -38,6 +40,7 @@ export const SelectInput: FC<SelectInputProps> = ({
         data-testid={testId}
         name={name}
         defaultValue={defaultValue}
+        value={value}
         onChange={
           onChange
             ? (e) => {
