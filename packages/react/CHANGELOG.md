@@ -2,6 +2,12 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+### [0.1.4](https://github.com/stela-ui/stela-ui/compare/react-0.1.3...react-0.1.4) (2022-10-31)
+
+### Bug Fixes
+
+- input type type def ([aea6d37](https://github.com/stela-ui/stela-ui/commit/aea6d373d50b6e9433f9e5a66db8d323a394506e))
+
 ### [0.1.3](https://github.com/stela-ui/stela-ui/compare/react-0.1.2...react-0.1.3) (2022-10-31)
 
 ### Dependency Updates
